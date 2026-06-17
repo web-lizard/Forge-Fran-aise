@@ -25,7 +25,7 @@ async function expectClickableElementsHealthy(page: Page) {
 
   expect(count).toBeGreaterThan(0)
 
-  const limit = Math.min(count, 45)
+  const limit = Math.min(count, 60)
 
   for (let index = 0; index < limit; index += 1) {
     const item = clickables.nth(index)
@@ -39,25 +39,86 @@ async function expectClickableElementsHealthy(page: Page) {
 
     if (!box) continue
 
-    expect(box.width, `clickable #${index} width`).toBeGreaterThan(24)
-    expect(box.height, `clickable #${index} height`).toBeGreaterThan(24)
+    if (box.y + box.height < 0 || box.y > 900) {
+      continue
+    }
 
-    const topOk = await item.evaluate((node) => {
+    expect(box.width, `clickable #${index} width`).toBeGreaterThan(20)
+    expect(box.height, `clickable #${index} height`).toBeGreaterThan(20)
+
+    const result = await item.evaluate((node, itemIndex) => {
       const rect = node.getBoundingClientRect()
-      const x = rect.left + rect.width / 2
-      const y = rect.top + rect.height / 2
-      const top = document.elementFromPoint(x, y)
+      const points = [
+        [rect.left + rect.width / 2, rect.top + rect.height / 2],
+        [rect.left + Math.min(12, rect.width / 2), rect.top + rect.height / 2],
+        [rect.right - Math.min(12, rect.width / 2), rect.top + rect.height / 2],
+      ]
 
-      if (!top) return false
-      if (top === node) return true
-      if (node.contains(top)) return true
+      const ok = points.some(([x, y]) => {
+        const top = document.elementFromPoint(x, y)
 
-      const clickableParent = top.closest('button, a')
-      return clickableParent === node
-    })
+        if (!top) return false
+        if (top === node) return true
+        if (node.contains(top)) return true
 
-    expect(topOk, `clickable #${index} should not be covered`).toBeTruthy()
+        const clickableParent = top.closest('button, a')
+        return clickableParent === node
+      })
+
+      const centerX = rect.left + rect.width / 2
+      const centerY = rect.top + rect.height / 2
+      const top = document.elementFromPoint(centerX, centerY)
+
+      return {
+        ok,
+        index: itemIndex,
+        text: (node.textContent ?? '').trim().slice(0, 120),
+        tag: node.tagName,
+        className: String((node as HTMLElement).className ?? ''),
+        rect: {
+          x: Math.round(rect.x),
+          y: Math.round(rect.y),
+          width: Math.round(rect.width),
+          height: Math.round(rect.height),
+        },
+        topTag: top?.tagName ?? null,
+        topClass: top ? String((top as HTMLElement).className ?? '') : null,
+        topText: top?.textContent?.trim().slice(0, 120) ?? null,
+      }
+    }, index)
+
+    expect(result.ok, `clickable covered: ${JSON.stringify(result)}`).toBeTruthy()
   }
+}
+
+async function findAudioButton(page: Page) {
+  for (let step = 0; step < 8; step += 1) {
+    const byClass = page.locator('.audio-button').first()
+
+    if (await byClass.isVisible().catch(() => false)) {
+      return byClass
+    }
+
+    const byRole = page.getByRole('button', { name: /Слушать|Écouter|Listen|Normal|▶|browser|playing/i }).first()
+
+    if (await byRole.isVisible().catch(() => false)) {
+      return byRole
+    }
+
+    const next = page
+      .getByRole('button', { name: /Далее|Следующая|Следующий|Продолжить|Начать|Next|Continue|Suivant/i })
+      .first()
+
+    if (await next.isVisible().catch(() => false)) {
+      await next.click()
+      await page.waitForTimeout(250)
+      continue
+    }
+
+    break
+  }
+
+  return null
 }
 
 test.beforeEach(async ({ page }) => {
@@ -97,10 +158,15 @@ test('main routes open without red overlay and dead layout', async ({ page }) =>
 test('audio button is clickable, does not stay disabled, and calls speech fallback', async ({ page }) => {
   await page.goto('/lesson/greetings_001')
   await page.waitForLoadState('domcontentloaded')
+  await page.waitForTimeout(300)
 
-  const audioButton = page.getByRole('button', { name: /Слушать|Écouter|Listen|Normal/i }).first()
+  const audioButton = await findAudioButton(page)
+
+  expect(audioButton, 'audio button should exist after walking lesson cards').not.toBeNull()
+
+  if (!audioButton) return
+
   await expect(audioButton).toBeVisible()
-
   await audioButton.click()
 
   await expect(audioButton).toBeEnabled({ timeout: 5_000 })

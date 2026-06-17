@@ -507,3 +507,49 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* patch-7-1-click-safety */
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+main,
+.page,
+.app-main,
+.imperial-main {
+  padding-bottom: calc(112px + env(safe-area-inset-bottom));
+}
+
+.bottom-nav {
+  z-index: 80;
+}
+
+.top-bar,
+.imperial-topbar {
+  z-index: 90;
+}
+
+.hero-card,
+.lesson-card,
+.practice-card,
+.profile-card,
+.diagnostics-card,
+.codex-card {
+  position: relative;
+  z-index: 1;
+}
+
+.audio-button,
+.primary-button,
+.option-button,
+button,
+a {
+  touch-action: manipulation;
+}
+
+.bottom-sheet:not(.open):not(.is-open),
+.bottom-sheet-backdrop:not(.open):not(.is-open) {
+  pointer-events: none;
+}
