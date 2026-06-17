@@ -132,3 +132,30 @@ Patch 6 adds:
 - port status and kill scripts
 - MVP report generator
 - final README
+## Autotests
+
+Full guard:
+
+```cmd
+scripts\test_guard.cmd
+```
+
+Fast UI guard:
+
+```cmd
+scripts\test_guard_fast.cmd
+```
+
+Headed UI tests:
+
+```cmd
+scripts\test_ui_headed.cmd
+```
+
+Playwright report:
+
+```cmd
+scripts\playwright_report.cmd
+```
+
+These tests check routes, visible click targets, no red Vite overlay, no horizontal overflow, audio button behavior, practice flow, BOM, backend smoke and frontend build.

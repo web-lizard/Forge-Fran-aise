@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <section class="page">
     <div class="hero-card">
       <div class="crest-orb">?</div>
