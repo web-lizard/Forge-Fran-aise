@@ -6,4 +6,4 @@ if not exist ".env.local" (
 )
 
 call npm install
-call npm run dev -- --host 127.0.0.1 --port 5197
+call npm run dev
