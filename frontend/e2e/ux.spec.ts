@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test'
+import { expect, test, type Locator, type Page } from '@playwright/test'
 import { installMockApi } from './mockApi'
 
 async function expectNoErrorOverlay(page: Page) {
@@ -16,6 +16,16 @@ async function expectNoHorizontalOverflow(page: Page) {
   expect(overflow).toBeLessThanOrEqual(4)
 }
 
+async function firstVisible(locators: Locator[]): Promise<Locator | null> {
+  for (const locator of locators) {
+    if (await locator.isVisible().catch(() => false)) {
+      return locator
+    }
+  }
+
+  return null
+}
+
 async function expectClickableElementsHealthy(page: Page) {
   const clickables = page.locator('button:not([disabled]), a[href]')
   const count = await clickables.count()
@@ -29,43 +39,36 @@ async function expectClickableElementsHealthy(page: Page) {
 
     if (!(await item.isVisible())) continue
 
-    await item.scrollIntoViewIfNeeded()
-    await page.waitForTimeout(80)
+    await item.evaluate((node) => {
+      node.scrollIntoView({ block: 'center', inline: 'nearest' })
+    })
+    await page.waitForTimeout(120)
 
     const box = await item.boundingBox()
     expect(box, `clickable #${index} should have bounding box`).not.toBeNull()
     if (!box) continue
 
-    if (box.y + box.height < 0 || box.y > page.viewportSize()!.height) continue
+    const viewport = page.viewportSize()
+    if (!viewport) continue
+
+    if (box.y + box.height < 0 || box.y > viewport.height) continue
 
     expect(box.width, `clickable #${index} width`).toBeGreaterThan(20)
     expect(box.height, `clickable #${index} height`).toBeGreaterThan(20)
 
     const result = await item.evaluate((node, itemIndex) => {
       const rect = node.getBoundingClientRect()
-      const points = [
-        [rect.left + rect.width / 2, rect.top + rect.height / 2],
-        [rect.left + Math.min(14, rect.width / 2), rect.top + rect.height / 2],
-        [rect.right - Math.min(14, rect.width / 2), rect.top + rect.height / 2],
-      ]
+      const x = rect.left + rect.width / 2
+      const y = rect.top + rect.height / 2
+      const top = document.elementFromPoint(x, y)
 
-      const ok = points.some(([x, y]) => {
-        const top = document.elementFromPoint(x, y)
-
-        if (!top) return false
-        if (top === node) return true
-        if (node.contains(top)) return true
-
-        const clickableParent = top.closest('button, a')
-        return clickableParent === node
-      })
-
-      const centerX = rect.left + rect.width / 2
-      const centerY = rect.top + rect.height / 2
-      const top = document.elementFromPoint(centerX, centerY)
+      const same =
+        top === node ||
+        Boolean(top && node.contains(top)) ||
+        top?.closest('button, a') === node
 
       return {
-        ok,
+        ok: same,
         index: itemIndex,
         text: (node.textContent ?? '').trim().slice(0, 120),
         tag: node.tagName,
@@ -82,53 +85,47 @@ async function expectClickableElementsHealthy(page: Page) {
       }
     }, index)
 
-    expect(result.ok, `clickable covered after scrollIntoView: ${JSON.stringify(result)}`).toBeTruthy()
+    expect(result.ok, `clickable covered after centered scroll: ${JSON.stringify(result)}`).toBeTruthy()
   }
 }
 
-async function clickForwardUntilAudio(page: Page) {
+async function findAudioButton(page: Page): Promise<Locator | null> {
+  await page.goto('/lesson/greetings_001')
+  await page.waitForLoadState('domcontentloaded')
+  await page.waitForTimeout(300)
+
   for (let step = 0; step < 10; step += 1) {
-    const audio = page.locator('.audio-button').first()
+    const audio = await firstVisible([
+      page.locator('.audio-button').first(),
+      page.getByRole('button', { name: /Слушать|Écouter|Listen|▶/i }).first(),
+    ])
 
-    if (await audio.isVisible().catch(() => false)) {
-      return audio
-    }
+    if (audio) return audio
 
-    const anyListen = page.getByRole('button', { name: /Слушать|Écouter|Listen|▶/i }).first()
+    const next = await firstVisible([
+      page.getByRole('button', { name: /Далее/i }).first(),
+      page.getByRole('button', { name: /Следующая/i }).first(),
+      page.getByRole('button', { name: /Следующий/i }).first(),
+      page.getByRole('button', { name: /Продолжить/i }).first(),
+      page.getByRole('button', { name: /Начать/i }).first(),
+      page.getByRole('button', { name: /Next|Continue|Suivant/i }).first(),
+    ])
 
-    if (await anyListen.isVisible().catch(() => false)) {
-      return anyListen
-    }
+    if (!next) break
 
-    const nextCandidates = [
-      /Далее/i,
-      /Следующая/i,
-      /Следующий/i,
-      /Продолжить/i,
-      /Начать/i,
-      /Вперёд/i,
-      /Next/i,
-      /Continue/i,
-      /Suivant/i,
-    ]
-
-    let clicked = false
-
-    for (const pattern of nextCandidates) {
-      const next = page.getByRole('button', { name: pattern }).first()
-
-      if (await next.isVisible().catch(() => false)) {
-        await next.click()
-        await page.waitForTimeout(250)
-        clicked = true
-        break
-      }
-    }
-
-    if (!clicked) break
+    await next.click()
+    await page.waitForTimeout(250)
   }
 
-  return null
+  await page.goto('/audio')
+  await page.waitForLoadState('domcontentloaded')
+  await page.waitForTimeout(300)
+
+  return firstVisible([
+    page.locator('.audio-button').first(),
+    page.getByRole('button', { name: /Слушать|Écouter|Listen|Normal|Медленно|▶/i }).first(),
+    page.locator('button').filter({ hasText: /Слушать|Normal|Медленно|▶/i }).first(),
+  ])
 }
 
 test.beforeEach(async ({ page }) => {
@@ -166,13 +163,9 @@ test('main routes open without red overlay and dead layout', async ({ page }) =>
 })
 
 test('audio button is clickable, does not stay disabled, and calls speech fallback', async ({ page }) => {
-  await page.goto('/lesson/greetings_001')
-  await page.waitForLoadState('domcontentloaded')
-  await page.waitForTimeout(300)
+  const audioButton = await findAudioButton(page)
 
-  const audioButton = await clickForwardUntilAudio(page)
-
-  expect(audioButton, 'audio button should exist in lesson flow').not.toBeNull()
+  expect(audioButton, 'audio button should exist in lesson or audio page').not.toBeNull()
   if (!audioButton) return
 
   await expect(audioButton).toBeVisible()

@@ -553,3 +553,51 @@ a {
 .bottom-sheet-backdrop:not(.open):not(.is-open) {
   pointer-events: none;
 }
+
+
+/* patch-7-3-bottom-nav-safe-scroll */
+html,
+body {
+  min-height: 100%;
+  scroll-padding-bottom: 180px;
+}
+
+body {
+  padding-bottom: calc(160px + env(safe-area-inset-bottom));
+}
+
+main,
+.page,
+.app-main,
+.imperial-main,
+.throne-page,
+.campaign-page,
+.lesson-page,
+.profile-page,
+.diagnostics-page,
+.codex-page {
+  padding-bottom: calc(180px + env(safe-area-inset-bottom));
+  scroll-padding-bottom: calc(180px + env(safe-area-inset-bottom));
+}
+
+.quick-grid,
+.quick-actions,
+.lesson-flow,
+.lesson-card-stack,
+.card-stack {
+  padding-bottom: calc(140px + env(safe-area-inset-bottom));
+}
+
+.quick-card,
+.audio-button,
+.primary-button,
+.option-button,
+button,
+a {
+  scroll-margin-top: 96px;
+  scroll-margin-bottom: 190px;
+}
+
+.bottom-nav {
+  z-index: 120;
+}
