@@ -1,25 +1,27 @@
 @echo off
-cd /d "%~dp0.."
+setlocal
+set "ROOT=%~dp0.."
 
 echo.
 echo === BOM CHECK ===
-py scripts\strip_bom.py --check
+py "%ROOT%\scripts\strip_bom.py" --check
 if errorlevel 1 exit /b 1
 
 echo.
 echo === BACKEND CHECK ===
-call scripts\check_backend.cmd
+call "%ROOT%\scripts\check_backend.cmd"
 if errorlevel 1 exit /b 1
 
 echo.
 echo === FRONTEND BUILD CHECK ===
-call scripts\check_frontend.cmd
+call "%ROOT%\scripts\check_frontend.cmd"
 if errorlevel 1 exit /b 1
 
 echo.
 echo === UI / UX PLAYWRIGHT CHECK ===
-call scripts\test_ui.cmd
+call "%ROOT%\scripts\test_ui.cmd"
 if errorlevel 1 exit /b 1
 
 echo.
 echo TEST GUARD PASSED
+endlocal
