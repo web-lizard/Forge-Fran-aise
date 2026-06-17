@@ -42,6 +42,18 @@ export async function apiPatch<T>(path: string, payload: unknown): Promise<T> {
   return response.json()
 }
 
+export async function apiDelete<T>(path: string): Promise<T> {
+  const response = await fetch(apiBase + path, {
+    method: 'DELETE',
+  })
+
+  if (!response.ok) {
+    throw new Error('DELETE ' + path + ' failed: ' + response.status)
+  }
+
+  return response.json()
+}
+
 export function publicApiUrl(path: string): string {
   return apiBase.replace('/api', '') + path
 }

@@ -23,7 +23,10 @@ scripts\Forge Francaise Launcher.cmd
 - JSON content engine
 - profiles / progress / ranks
 - TTS provider architecture
-- audio cache
+- edge-tts provider
+- mock fallback provider
+- audio cache API
+- audio drill page
 - vulgar French library
 - mobile-first UI
 - bottom navigation
@@ -41,18 +44,21 @@ scripts\Forge Francaise Launcher.cmd
 - progress scoring
 - answer event log
 
-## Patch 4
+## Patch 5
 
-Patch 4 adds:
+Patch 5 adds:
 
-- review API
-- practice modes: quick, weak, audio, articles, vulgar
-- progress summary endpoint
-- scoring
-- weak topic detection
-- fill_blank exercise support
-- phrase_builder exercise support
-- stronger ExerciseRenderer
-- improved PracticePage
-- profile stats
-- throne stats
+- edge-tts dependency
+- EdgeTTSProvider
+- MP3 audio generation
+- mock fallback if Edge TTS fails
+- audio cache index
+- GET /api/audio/cache
+- DELETE /api/audio/cache
+- AudioDrillPage
+- /audio route
+- stronger VoiceSelector
+- audio cache controls in profile
+- bottom nav audio entry
+
+Edge voices require internet. If they fail, app falls back to mock.

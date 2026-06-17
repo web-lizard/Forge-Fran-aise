@@ -6,6 +6,9 @@ from app.tts.base import TTSProvider
 
 
 class MockProvider(TTSProvider):
+    engine = "mock"
+    extension = "wav"
+
     def voices(self) -> list[Voice]:
         return [
             Voice(
@@ -13,12 +16,16 @@ class MockProvider(TTSProvider):
                 label="Voix impériale féminine, mock",
                 engine="mock",
                 quality="dev",
+                gender="female",
+                description="Fallback silence generator for offline development.",
             ),
             Voice(
                 id="mock_fr_male",
                 label="Voix impériale masculine, mock",
                 engine="mock",
                 quality="dev",
+                gender="male",
+                description="Fallback silence generator for offline development.",
             ),
         ]
 

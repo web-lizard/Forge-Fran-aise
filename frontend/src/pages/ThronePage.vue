@@ -69,6 +69,11 @@ const firstLesson = computed(() => bootstrap.payload?.sections?.[0]?.lessons?.[0
         <span>{{ settings.uiLanguage === 'ru' ? '5 быстрых ударов по хаосу' : 'Cinq coups rapides contre le chaos' }}</span>
       </RouterLink>
 
+      <RouterLink class="quick-card" to="/audio">
+        <strong>{{ settings.uiLanguage === 'ru' ? 'Аудио' : 'Audio' }}</strong>
+        <span>{{ settings.uiLanguage === 'ru' ? 'Слушать, повторять, запоминать' : 'Écouter, répéter, retenir' }}</span>
+      </RouterLink>
+
       <RouterLink class="quick-card" to="/vulgar">
         <strong>{{ settings.uiLanguage === 'ru' ? 'Мат' : 'Gros mots' }}</strong>
         <span>{{ settings.uiLanguage === 'ru' ? 'Грубый французский под замком' : 'Français vulgaire sous contrôle' }}</span>

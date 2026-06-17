@@ -83,9 +83,15 @@ h2 {
 
 .hero-card p,
 .section-title p,
-.study-card p {
+.study-card p,
+.voice-note {
   color: var(--text-muted);
   line-height: 1.55;
+}
+
+.voice-note {
+  margin: 0;
+  font-size: 0.86rem;
 }
 
 .crest-orb {
@@ -120,13 +126,18 @@ h2 {
 .hero-actions,
 .quick-grid,
 .option-grid,
-.button-row {
+.button-row,
+.audio-grid {
   display: grid;
   gap: 10px;
 }
 
 .button-row {
   grid-template-columns: 1fr auto;
+}
+
+.audio-grid {
+  grid-template-columns: 1fr 1fr;
 }
 
 .primary-button,
@@ -147,6 +158,17 @@ h2 {
   gap: 8px;
   min-height: 48px;
   padding: 0 18px;
+}
+
+.audio-button.compact {
+  min-height: 38px;
+  padding: 0 12px;
+  font-size: 0.86rem;
+}
+
+.audio-button small {
+  opacity: 0.7;
+  font-size: 0.7rem;
 }
 
 .primary-button {
@@ -234,6 +256,10 @@ h2 {
   gap: 10px;
   min-height: min(420px, calc(100vh - 260px));
   align-content: center;
+}
+
+.audio-drill-card {
+  justify-items: stretch;
 }
 
 .study-card h2 {

@@ -7,6 +7,8 @@ class Voice(BaseModel):
     lang: str = "fr"
     engine: str
     quality: str = "mock"
+    gender: str | None = None
+    description: str | None = None
 
 
 class AudioRequest(BaseModel):
@@ -22,3 +24,17 @@ class AudioResponse(BaseModel):
     url: str
     cached: bool
     duration_ms: int
+    provider: str = "mock"
+    format: str = "wav"
+    fallback: bool = False
+
+
+class AudioCacheEntry(BaseModel):
+    audio_id: str
+    text: str
+    voice_id: str
+    mode: str
+    provider: str
+    format: str
+    path: str
+    created_at: str

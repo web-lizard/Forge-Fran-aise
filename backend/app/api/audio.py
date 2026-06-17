@@ -11,6 +11,16 @@ def voices():
     return [voice.model_dump() for voice in get_audio_service().voices()]
 
 
+@router.get("/audio/cache")
+def cache_summary():
+    return get_audio_service().cache_summary()
+
+
+@router.delete("/audio/cache")
+def clear_cache():
+    return get_audio_service().clear_cache()
+
+
 @router.post("/audio/speak")
 def speak(request: AudioRequest):
     return get_audio_service().speak(request)

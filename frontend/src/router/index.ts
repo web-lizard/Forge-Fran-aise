@@ -5,6 +5,7 @@ import CampaignPage from '../pages/CampaignPage.vue'
 import SectionPage from '../pages/SectionPage.vue'
 import LessonPage from '../pages/LessonPage.vue'
 import PracticePage from '../pages/PracticePage.vue'
+import AudioDrillPage from '../pages/AudioDrillPage.vue'
 import CodexPage from '../pages/CodexPage.vue'
 import VulgarLibraryPage from '../pages/VulgarLibraryPage.vue'
 import ProfilePage from '../pages/ProfilePage.vue'
@@ -17,6 +18,7 @@ export const router = createRouter({
     { path: '/section/:sectionId', name: 'section', component: SectionPage },
     { path: '/lesson/:lessonId', name: 'lesson', component: LessonPage },
     { path: '/practice', name: 'practice', component: PracticePage },
+    { path: '/audio', name: 'audio', component: AudioDrillPage },
     { path: '/codex', name: 'codex', component: CodexPage },
     { path: '/vulgar', name: 'vulgar', component: VulgarLibraryPage },
     { path: '/profile', name: 'profile', component: ProfilePage },

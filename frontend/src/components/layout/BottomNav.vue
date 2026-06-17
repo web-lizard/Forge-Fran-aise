@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ui } from '../../lib/i18n'
 import { useSettingsStore } from '../../stores/settingsStore'
 
 const settings = useSettingsStore()
@@ -7,10 +6,10 @@ const settings = useSettingsStore()
 
 <template>
   <nav class="bottom-nav">
-    <RouterLink to="/">{{ ui('throne', settings.uiLanguage) }}</RouterLink>
-    <RouterLink to="/campaign">{{ ui('lessons', settings.uiLanguage) }}</RouterLink>
-    <RouterLink to="/practice">{{ ui('drill', settings.uiLanguage) }}</RouterLink>
-    <RouterLink to="/codex">{{ ui('codex', settings.uiLanguage) }}</RouterLink>
-    <RouterLink to="/profile">{{ ui('profile', settings.uiLanguage) }}</RouterLink>
+    <RouterLink to="/">{{ settings.uiLanguage === 'ru' ? 'Трон' : 'Trône' }}</RouterLink>
+    <RouterLink to="/campaign">{{ settings.uiLanguage === 'ru' ? 'Уроки' : 'Leçons' }}</RouterLink>
+    <RouterLink to="/practice">{{ settings.uiLanguage === 'ru' ? 'Дрель' : 'Drill' }}</RouterLink>
+    <RouterLink to="/audio">{{ settings.uiLanguage === 'ru' ? 'Аудио' : 'Audio' }}</RouterLink>
+    <RouterLink to="/profile">{{ settings.uiLanguage === 'ru' ? 'Профиль' : 'Profil' }}</RouterLink>
   </nav>
 </template>

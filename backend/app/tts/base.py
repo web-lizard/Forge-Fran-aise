@@ -5,6 +5,9 @@ from app.models.audio import AudioRequest, Voice
 
 
 class TTSProvider(ABC):
+    engine: str = "base"
+    extension: str = "wav"
+
     @abstractmethod
     def voices(self) -> list[Voice]:
         raise NotImplementedError
