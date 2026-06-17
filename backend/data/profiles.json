@@ -1,0 +1,15 @@
+{
+  "active_profile_id": "local_lizard",
+  "profiles": [
+    {
+      "id": "local_lizard",
+      "display_name": "Monsieur Souveraineté",
+      "ui_language": "ru",
+      "learning_language": "fr",
+      "voice_id": "edge_fr_denise",
+      "rank_id": "recrue",
+      "vulgar_library_enabled": true,
+      "created_at": "2026-06-17T06:22:10.676486+00:00"
+    }
+  ]
+}
