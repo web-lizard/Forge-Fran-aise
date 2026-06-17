@@ -601,3 +601,191 @@ a {
 .bottom-nav {
   z-index: 120;
 }
+
+
+/* patch-8-practice-breathing */
+:root {
+  --forge-gap-sm: clamp(10px, 1.4vw, 14px);
+  --forge-gap-md: clamp(14px, 2vw, 22px);
+  --forge-gap-lg: clamp(22px, 3vw, 34px);
+  --forge-practice-radius: clamp(22px, 3vw, 34px);
+}
+
+main:has(.option-button),
+.page:has(.option-button) {
+  width: min(100%, 1220px);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 42px);
+}
+
+main:has(.option-button) .hero-card,
+main:has(.option-button) .practice-card,
+main:has(.option-button) .lesson-card,
+main:has(.option-button) .exercise-card,
+main:has(.option-button) .card,
+.page:has(.option-button) .hero-card,
+.page:has(.option-button) .practice-card,
+.page:has(.option-button) .lesson-card,
+.page:has(.option-button) .exercise-card,
+.page:has(.option-button) .card {
+  padding: clamp(22px, 3.2vw, 38px) !important;
+  border-radius: var(--forge-practice-radius) !important;
+}
+
+main:has(.option-button) h1,
+main:has(.option-button) h2,
+main:has(.option-button) .question-title,
+main:has(.option-button) .exercise-title,
+main:has(.option-button) .prompt-title,
+.page:has(.option-button) h1,
+.page:has(.option-button) h2,
+.page:has(.option-button) .question-title,
+.page:has(.option-button) .exercise-title,
+.page:has(.option-button) .prompt-title {
+  max-width: 980px;
+  margin-bottom: var(--forge-gap-md) !important;
+  font-size: clamp(34px, 4.4vw, 58px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.03em;
+}
+
+main:has(.option-button) .audio-button,
+.page:has(.option-button) .audio-button {
+  margin: 0 0 var(--forge-gap-md) 0 !important;
+  min-height: 54px;
+  padding: 13px 22px;
+  border-radius: 999px;
+}
+
+.options-grid,
+.answer-grid,
+.answers-grid,
+.option-grid,
+.choices-grid,
+.choice-grid,
+.practice-options,
+.answer-options,
+.exercise-options,
+.options-list,
+.choices-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: var(--forge-gap-sm) var(--forge-gap-md) !important;
+  align-items: stretch !important;
+  margin-top: var(--forge-gap-md) !important;
+  margin-bottom: var(--forge-gap-lg) !important;
+}
+
+.option-button {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: clamp(58px, 7vw, 72px) !important;
+  padding: 14px clamp(16px, 2.2vw, 26px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.24 !important;
+  flex: 1 1 calc(50% - var(--forge-gap-md)) !important;
+}
+
+main:has(.option-button) .primary-button:not(.audio-button):not(.option-button),
+main:has(.option-button) .next-button,
+main:has(.option-button) button[class*="next"],
+main:has(.option-button) button[class*="Next"],
+.page:has(.option-button) .primary-button:not(.audio-button):not(.option-button),
+.page:has(.option-button) .next-button,
+.page:has(.option-button) button[class*="next"],
+.page:has(.option-button) button[class*="Next"] {
+  margin-top: var(--forge-gap-lg) !important;
+  min-height: clamp(58px, 7vw, 68px) !important;
+  border-radius: 999px !important;
+}
+
+main:has(.option-button) .progress-shell,
+main:has(.option-button) .progress-row,
+main:has(.option-button) .practice-progress,
+.page:has(.option-button) .progress-shell,
+.page:has(.option-button) .progress-row,
+.page:has(.option-button) .practice-progress {
+  margin-bottom: var(--forge-gap-lg) !important;
+}
+
+main:has(.option-button) .practice-tabs,
+main:has(.option-button) .mode-tabs,
+main:has(.option-button) .tabs,
+.page:has(.option-button) .practice-tabs,
+.page:has(.option-button) .mode-tabs,
+.page:has(.option-button) .tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: var(--forge-gap-md);
+}
+
+@media (min-width: 1180px) {
+  main:has(.option-button),
+  .page:has(.option-button) {
+    width: min(100%, 1168px);
+  }
+
+  .option-button {
+    font-size: clamp(17px, 1.2vw, 21px) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  main:has(.option-button),
+  .page:has(.option-button) {
+    padding-inline: 14px;
+  }
+
+  .options-grid,
+  .answer-grid,
+  .answers-grid,
+  .option-grid,
+  .choices-grid,
+  .choice-grid,
+  .practice-options,
+  .answer-options,
+  .exercise-options,
+  .options-list,
+  .choices-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  main:has(.option-button) h1,
+  main:has(.option-button) h2,
+  main:has(.option-button) .question-title,
+  main:has(.option-button) .exercise-title,
+  main:has(.option-button) .prompt-title,
+  .page:has(.option-button) h1,
+  .page:has(.option-button) h2,
+  .page:has(.option-button) .question-title,
+  .page:has(.option-button) .exercise-title,
+  .page:has(.option-button) .prompt-title {
+    font-size: clamp(28px, 9vw, 42px) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  main:has(.option-button) .hero-card,
+  main:has(.option-button) .practice-card,
+  main:has(.option-button) .lesson-card,
+  main:has(.option-button) .exercise-card,
+  main:has(.option-button) .card,
+  .page:has(.option-button) .hero-card,
+  .page:has(.option-button) .practice-card,
+  .page:has(.option-button) .lesson-card,
+  .page:has(.option-button) .exercise-card,
+  .page:has(.option-button) .card {
+    padding: 18px !important;
+  }
+
+  .option-button {
+    min-height: 56px !important;
+  }
+}

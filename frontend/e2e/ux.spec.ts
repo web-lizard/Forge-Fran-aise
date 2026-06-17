@@ -200,6 +200,55 @@ test('practice answer flow does not leave buttons stuck', async ({ page }) => {
   await expectNoHorizontalOverflow(page)
 })
 
+
+
+test('practice layout has visible breathing room', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 768 })
+  await page.goto('/practice')
+  await page.waitForLoadState('domcontentloaded')
+  await page.waitForTimeout(300)
+
+  const options = page.locator('.option-button')
+  const count = await options.count()
+
+  expect(count).toBeGreaterThanOrEqual(3)
+
+  const boxes = []
+
+  for (let i = 0; i < Math.min(count, 6); i += 1) {
+    const box = await options.nth(i).boundingBox()
+    expect(box, `option ${i} box`).not.toBeNull()
+    if (box) boxes.push(box)
+  }
+
+  for (let i = 0; i < boxes.length; i += 1) {
+    expect(boxes[i].height, `option ${i} height`).toBeGreaterThanOrEqual(52)
+  }
+
+  for (let i = 0; i < boxes.length; i += 1) {
+    for (let j = i + 1; j < boxes.length; j += 1) {
+      const a = boxes[i]
+      const b = boxes[j]
+
+      const overlapX = Math.max(0, Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x))
+      const overlapY = Math.max(0, Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y))
+
+      expect(overlapX * overlapY, `options ${i} and ${j} should not overlap`).toBe(0)
+    }
+  }
+
+  const nextButton = page.getByRole('button', { name: /Следующий удар|Coup suivant/i })
+  await expect(nextButton).toBeVisible()
+
+  const nextBox = await nextButton.boundingBox()
+  expect(nextBox, 'next button box').not.toBeNull()
+
+  if (nextBox && boxes.length) {
+    const lastOptionBottom = Math.max(...boxes.map((box) => box.y + box.height))
+    expect(nextBox.y - lastOptionBottom, 'gap before next button').toBeGreaterThanOrEqual(10)
+  }
+})
+
 test('mobile and desktop viewports have no covered navigation', async ({ page }) => {
   const viewports = [
     { width: 390, height: 844 },
