@@ -5,5 +5,5 @@ if not exist ".env.local" (
   echo VITE_API_BASE=http://127.0.0.1:8797/api> .env.local
 )
 
-npm install
-npm run dev -- --host 127.0.0.1 --port 5197
+call npm install
+call npm run dev -- --host 127.0.0.1 --port 5197

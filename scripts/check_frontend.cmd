@@ -1,8 +1,8 @@
 @echo off
 cd /d "%~dp0..\frontend"
 
-npm install
+call npm install
 
 echo.
 echo Frontend build...
-npm run build
+call npm run build
