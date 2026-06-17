@@ -36,6 +36,14 @@
     {
       "type": "exercise",
       "exercise_id": "ex_du_pain_001"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_fill_verre_de_vin_001"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_phrase_je_veux_du_pain"
     }
   ],
   "exercises": [
@@ -53,7 +61,41 @@
         "fr": "pain est masculin. Pour une quantité non précisée, on utilise du."
       },
       "audio_text": "Je veux du pain.",
-      "tags": ["de", "du", "partitif"],
+      "tags": ["de", "du", "partitif", "article"],
+      "difficulty": 1
+    },
+    {
+      "id": "ex_fill_verre_de_vin_001",
+      "type": "fill_blank",
+      "prompt": {
+        "ru": "Заполни пропуск: un verre ___ vin",
+        "fr": "Complète : un verre ___ vin"
+      },
+      "options": [],
+      "answer": "de",
+      "explanation": {
+        "ru": "un verre de vin - бокал вина. Здесь de связывает количество и вещество.",
+        "fr": "un verre de vin exprime une quantité."
+      },
+      "audio_text": "un verre de vin",
+      "tags": ["de", "fill_blank", "quantity"],
+      "difficulty": 1
+    },
+    {
+      "id": "ex_phrase_je_veux_du_pain",
+      "type": "phrase_builder",
+      "prompt": {
+        "ru": "Собери фразу: Я хочу хлеба.",
+        "fr": "Construis : Je veux du pain."
+      },
+      "options": ["Je", "veux", "du", "pain.", "de", "la"],
+      "answer": "Je veux du pain.",
+      "explanation": {
+        "ru": "Je veux du pain. - я хочу хлеба / немного хлеба.",
+        "fr": "Je veux du pain. indique une quantité non précisée."
+      },
+      "audio_text": "Je veux du pain.",
+      "tags": ["de", "du", "phrase_builder", "partitif"],
       "difficulty": 1
     }
   ]

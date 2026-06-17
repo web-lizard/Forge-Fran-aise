@@ -36,20 +36,23 @@ scripts\Forge Francaise Launcher.cmd
 - section pages
 - lesson card mode
 - expanded A0 content
+- real practice sessions
+- weak topic review
+- progress scoring
+- answer event log
 
-## Patch 3
+## Patch 4
 
-Patch 3 adds:
+Patch 4 adds:
 
-- pronunciation section
-- nouns section
-- verbs section
-- phrasebook section
-- more article lessons
-- more vulgar library items
-- course API
-- section page
-- lesson tile component
-- card renderer component
-- mobile one-card lesson flow
-- git local identity fix
+- review API
+- practice modes: quick, weak, audio, articles, vulgar
+- progress summary endpoint
+- scoring
+- weak topic detection
+- fill_blank exercise support
+- phrase_builder exercise support
+- stronger ExerciseRenderer
+- improved PracticePage
+- profile stats
+- throne stats

@@ -28,6 +28,12 @@ class ContentService:
     def iter_lesson_files(self) -> list[Path]:
         return sorted(self.content_root.glob("sections/*/lessons/*.json"))
 
+    def list_lessons(self) -> list[dict[str, Any]]:
+        lessons: list[dict[str, Any]] = []
+        for lesson_path in self.iter_lesson_files():
+            lessons.append(read_json(lesson_path))
+        return sorted(lessons, key=lambda item: (item.get("section_id", ""), item.get("order", 999)))
+
     def get_lesson(self, lesson_id: str) -> dict[str, Any]:
         for lesson_path in self.iter_lesson_files():
             lesson = read_json(lesson_path)
@@ -35,9 +41,47 @@ class ContentService:
                 return lesson
         raise KeyError(f"Lesson not found: {lesson_id}")
 
+    def list_exercises(self) -> list[dict[str, Any]]:
+        exercises: list[dict[str, Any]] = []
+
+        for lesson in self.list_lessons():
+            for exercise in lesson.get("exercises", []):
+                item = dict(exercise)
+                item["lesson_id"] = lesson["id"]
+                item["section_id"] = lesson["section_id"]
+                item["lesson_title"] = lesson["title"]
+                item["level"] = lesson.get("level", "A0")
+                exercises.append(item)
+
+        return exercises
+
+    def get_exercise(self, lesson_id: str, exercise_id: str) -> dict[str, Any]:
+        lesson = self.get_lesson(lesson_id)
+
+        for exercise in lesson.get("exercises", []):
+            if exercise.get("id") == exercise_id:
+                item = dict(exercise)
+                item["lesson_id"] = lesson_id
+                item["section_id"] = lesson["section_id"]
+                item["lesson_title"] = lesson["title"]
+                item["level"] = lesson.get("level", "A0")
+                return item
+
+        raise KeyError(f"Exercise not found: {exercise_id}")
+
     def list_ranks(self) -> list[dict[str, Any]]:
         payload = read_json(self.content_root / "ranks" / "napoleonic_ranks.json")
         return payload["ranks"]
+
+    def rank_for_score(self, score: int) -> dict[str, Any]:
+        ranks = self.list_ranks()
+        current = ranks[0]
+
+        for rank in ranks:
+            if score >= rank.get("min_score", 0):
+                current = rank
+
+        return current
 
     def list_codex(self) -> list[dict[str, Any]]:
         entries: list[dict[str, Any]] = []

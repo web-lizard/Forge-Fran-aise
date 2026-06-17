@@ -99,7 +99,8 @@ h2 {
   font-size: 2rem;
 }
 
-.profile-strip {
+.profile-strip,
+.practice-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -107,6 +108,13 @@ h2 {
   padding: 12px 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
+}
+
+.practice-head {
+  color: var(--antique-gold);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .hero-actions,
@@ -159,8 +167,9 @@ h2 {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.ghost-button.active,
 .ghost-button.wide {
-  width: 100%;
+  border: 1px solid rgba(176, 138, 69, 0.45);
 }
 
 .quick-grid {
@@ -237,6 +246,10 @@ h2 {
   font-weight: 700;
 }
 
+.muted {
+  color: var(--text-muted);
+}
+
 .mini-details {
   padding: 12px;
   border-radius: 14px;
@@ -256,6 +269,27 @@ h2 {
 
 .option-button.selected {
   outline: 2px solid var(--antique-gold);
+}
+
+.answer-input,
+.built-phrase {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(232, 226, 216, 0.16);
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.answer-input {
+  outline: none;
+}
+
+.built-phrase {
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
 }
 
 .result-box {
@@ -372,4 +406,40 @@ h2 {
   align-items: center;
   justify-content: center;
   min-height: 48px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stat-grid div {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.stat-grid strong {
+  font-size: 1.25rem;
+  color: var(--antique-gold);
+}
+
+.stat-grid span {
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.stat-chip {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--bone-white);
+  background: rgba(176, 138, 69, 0.16);
+  font-size: 0.82rem;
+  font-weight: 800;
 }

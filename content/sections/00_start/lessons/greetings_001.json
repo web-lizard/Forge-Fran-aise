@@ -51,6 +51,14 @@
     {
       "type": "exercise",
       "exercise_id": "ex_bonjour_translation"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_phrase_bonjour_monsieur"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_fill_merci_beaucoup"
     }
   ],
   "exercises": [
@@ -69,6 +77,40 @@
       },
       "audio_text": "Bonjour",
       "tags": ["greeting", "basic"],
+      "difficulty": 1
+    },
+    {
+      "id": "ex_phrase_bonjour_monsieur",
+      "type": "phrase_builder",
+      "prompt": {
+        "ru": "Собери фразу: Здравствуйте, месье.",
+        "fr": "Construis la phrase : Bonjour, monsieur."
+      },
+      "options": ["Bonjour,", "monsieur.", "Merci", "beaucoup"],
+      "answer": "Bonjour, monsieur.",
+      "explanation": {
+        "ru": "Bonjour, monsieur. - вежливое приветствие.",
+        "fr": "Bonjour, monsieur. est une salutation polie."
+      },
+      "audio_text": "Bonjour, monsieur.",
+      "tags": ["greeting", "phrase_builder", "basic"],
+      "difficulty": 1
+    },
+    {
+      "id": "ex_fill_merci_beaucoup",
+      "type": "fill_blank",
+      "prompt": {
+        "ru": "Заполни пропуск: Merci ___.",
+        "fr": "Complète : Merci ___."
+      },
+      "options": [],
+      "answer": "beaucoup",
+      "explanation": {
+        "ru": "Merci beaucoup - большое спасибо.",
+        "fr": "Merci beaucoup signifie большое спасибо."
+      },
+      "audio_text": "Merci beaucoup.",
+      "tags": ["greeting", "fill_blank", "basic"],
       "difficulty": 1
     }
   ]

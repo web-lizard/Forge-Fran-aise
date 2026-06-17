@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import AudioButton from '../components/learning/AudioButton.vue'
+import { apiGet } from '../lib/api'
+import { ui } from '../lib/i18n'
 import { useBootstrapStore } from '../stores/bootstrapStore'
 import { useSettingsStore } from '../stores/settingsStore'
-import { ui } from '../lib/i18n'
 
 const bootstrap = useBootstrapStore()
 const settings = useSettingsStore()
+const summary = ref<any | null>(null)
 
 onMounted(async () => {
   await bootstrap.load()
   settings.hydrateFromBootstrap()
+  summary.value = await apiGet('/progress/local_lizard/summary')
 })
 
 const profile = computed(() => bootstrap.payload?.profile)
@@ -35,6 +38,21 @@ const firstLesson = computed(() => bootstrap.payload?.sections?.[0]?.lessons?.[0
       <div class="profile-strip" v-if="profile">
         <span>{{ profile.display_name }}</span>
         <strong>{{ profile.rank_id }}</strong>
+      </div>
+
+      <div class="stat-grid" v-if="summary">
+        <div>
+          <strong>{{ summary.score }}</strong>
+          <span>score</span>
+        </div>
+        <div>
+          <strong>{{ summary.accuracy }}%</strong>
+          <span>accuracy</span>
+        </div>
+        <div>
+          <strong>{{ summary.completed_count }}</strong>
+          <span>lessons</span>
+        </div>
       </div>
 
       <div class="hero-actions">

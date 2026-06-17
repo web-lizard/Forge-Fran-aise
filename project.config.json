@@ -5,6 +5,6 @@
   "frontend_port": 5197,
   "api_base": "http://127.0.0.1:8797/api",
   "frontend_url": "http://127.0.0.1:5197",
-  "version": "0.3.0",
-  "patch": "patch 3: course content and lesson navigation"
+  "version": "0.4.0",
+  "patch": "patch 4: real practice modes, review, progress scoring"
 }

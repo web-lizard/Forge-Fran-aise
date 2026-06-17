@@ -73,6 +73,8 @@ for lesson_path in sorted((CONTENT_ROOT / "sections").glob("*/lessons/*.json")):
 
     require_localized(lesson, "title", lesson_path)
 
+    card_exercise_refs = set()
+
     for card in lesson.get("cards", []):
         card_type = card.get("type")
         if not card_type:
@@ -88,8 +90,17 @@ for lesson_path in sorted((CONTENT_ROOT / "sections").glob("*/lessons/*.json")):
             if not card.get("audio_text"):
                 errors.append(f"{lesson_path}: {card_type} card without audio_text")
 
+        if card_type == "exercise":
+            if not card.get("exercise_id"):
+                errors.append(f"{lesson_path}: exercise card without exercise_id")
+            else:
+                card_exercise_refs.add(card["exercise_id"])
+
+    local_exercises = set()
+
     for exercise in lesson.get("exercises", []):
         exercise_id = exercise.get("id")
+        exercise_type = exercise.get("type")
 
         if not exercise_id:
             errors.append(f"{lesson_path}: exercise without id")
@@ -97,6 +108,7 @@ for lesson_path in sorted((CONTENT_ROOT / "sections").glob("*/lessons/*.json")):
             errors.append(f"{lesson_path}: duplicated exercise id {exercise_id}")
         else:
             exercise_ids.add(exercise_id)
+            local_exercises.add(exercise_id)
 
         if "answer" not in exercise:
             errors.append(f"{lesson_path}: exercise {exercise_id} has no answer")
@@ -110,6 +122,16 @@ for lesson_path in sorted((CONTENT_ROOT / "sections").glob("*/lessons/*.json")):
             errors.append(f"{lesson_path}: exercise {exercise_id} has no explanation")
         else:
             require_localized(exercise, "explanation", lesson_path)
+
+        if exercise_type in ["choose_option", "phrase_builder"] and not exercise.get("options"):
+            errors.append(f"{lesson_path}: exercise {exercise_id} type {exercise_type} requires options")
+
+        if not exercise.get("tags"):
+            errors.append(f"{lesson_path}: exercise {exercise_id} has no tags")
+
+    missing_refs = card_exercise_refs - local_exercises
+    for missing in missing_refs:
+        errors.append(f"{lesson_path}: card references missing exercise {missing}")
 
 for pack_path in sorted((CONTENT_ROOT / "vulgar" / "packs").glob("*.json")):
     pack = read_json(pack_path)
