@@ -20,8 +20,10 @@ export const usePracticeStore = defineStore('practice', {
     accuracy: (state) => state.answered ? Math.round(state.correct / state.answered * 100) : 0,
   },
   actions: {
-    async load(mode: PracticeMode = this.mode) {
-      this.mode = mode
+    async load(mode?: PracticeMode) {
+      const selectedMode = mode ?? this.mode
+
+      this.mode = selectedMode
       this.loading = true
       this.error = null
       this.currentIndex = 0
@@ -29,7 +31,7 @@ export const usePracticeStore = defineStore('practice', {
       this.correct = 0
 
       try {
-        this.session = await apiGet(`/review/local_lizard/session?mode=${mode}&limit=7`)
+        this.session = await apiGet(`/review/local_lizard/session?mode=${selectedMode}&limit=7`)
       } catch (error) {
         this.error = error instanceof Error ? error.message : String(error)
       } finally {
@@ -38,6 +40,7 @@ export const usePracticeStore = defineStore('practice', {
     },
     markAnswered(payload: any) {
       this.answered += 1
+
       if (payload?.correct) {
         this.correct += 1
       }

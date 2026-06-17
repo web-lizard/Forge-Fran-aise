@@ -1,4 +1,6 @@
-export const apiBase = import.meta.env.VITE_API_BASE ?? 'http://127.0.0.1:8797/api'
+const viteEnv = (import.meta as any).env ?? {}
+
+export const apiBase = viteEnv.VITE_API_BASE ?? 'http://127.0.0.1:8797/api'
 
 export async function apiGet<T>(path: string): Promise<T> {
   const response = await fetch(apiBase + path)
