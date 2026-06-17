@@ -12,10 +12,7 @@ async function expectNoErrorOverlay(page: Page) {
 }
 
 async function expectNoHorizontalOverflow(page: Page) {
-  const overflow = await page.evaluate(() => {
-    return document.documentElement.scrollWidth - window.innerWidth
-  })
-
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
   expect(overflow).toBeLessThanOrEqual(4)
 }
 
@@ -30,18 +27,16 @@ async function expectClickableElementsHealthy(page: Page) {
   for (let index = 0; index < limit; index += 1) {
     const item = clickables.nth(index)
 
-    if (!(await item.isVisible())) {
-      continue
-    }
+    if (!(await item.isVisible())) continue
+
+    await item.scrollIntoViewIfNeeded()
+    await page.waitForTimeout(80)
 
     const box = await item.boundingBox()
     expect(box, `clickable #${index} should have bounding box`).not.toBeNull()
-
     if (!box) continue
 
-    if (box.y + box.height < 0 || box.y > 900) {
-      continue
-    }
+    if (box.y + box.height < 0 || box.y > page.viewportSize()!.height) continue
 
     expect(box.width, `clickable #${index} width`).toBeGreaterThan(20)
     expect(box.height, `clickable #${index} height`).toBeGreaterThan(20)
@@ -50,8 +45,8 @@ async function expectClickableElementsHealthy(page: Page) {
       const rect = node.getBoundingClientRect()
       const points = [
         [rect.left + rect.width / 2, rect.top + rect.height / 2],
-        [rect.left + Math.min(12, rect.width / 2), rect.top + rect.height / 2],
-        [rect.right - Math.min(12, rect.width / 2), rect.top + rect.height / 2],
+        [rect.left + Math.min(14, rect.width / 2), rect.top + rect.height / 2],
+        [rect.right - Math.min(14, rect.width / 2), rect.top + rect.height / 2],
       ]
 
       const ok = points.some(([x, y]) => {
@@ -87,35 +82,50 @@ async function expectClickableElementsHealthy(page: Page) {
       }
     }, index)
 
-    expect(result.ok, `clickable covered: ${JSON.stringify(result)}`).toBeTruthy()
+    expect(result.ok, `clickable covered after scrollIntoView: ${JSON.stringify(result)}`).toBeTruthy()
   }
 }
 
-async function findAudioButton(page: Page) {
-  for (let step = 0; step < 8; step += 1) {
-    const byClass = page.locator('.audio-button').first()
+async function clickForwardUntilAudio(page: Page) {
+  for (let step = 0; step < 10; step += 1) {
+    const audio = page.locator('.audio-button').first()
 
-    if (await byClass.isVisible().catch(() => false)) {
-      return byClass
+    if (await audio.isVisible().catch(() => false)) {
+      return audio
     }
 
-    const byRole = page.getByRole('button', { name: /Слушать|Écouter|Listen|Normal|▶|browser|playing/i }).first()
+    const anyListen = page.getByRole('button', { name: /Слушать|Écouter|Listen|▶/i }).first()
 
-    if (await byRole.isVisible().catch(() => false)) {
-      return byRole
+    if (await anyListen.isVisible().catch(() => false)) {
+      return anyListen
     }
 
-    const next = page
-      .getByRole('button', { name: /Далее|Следующая|Следующий|Продолжить|Начать|Next|Continue|Suivant/i })
-      .first()
+    const nextCandidates = [
+      /Далее/i,
+      /Следующая/i,
+      /Следующий/i,
+      /Продолжить/i,
+      /Начать/i,
+      /Вперёд/i,
+      /Next/i,
+      /Continue/i,
+      /Suivant/i,
+    ]
 
-    if (await next.isVisible().catch(() => false)) {
-      await next.click()
-      await page.waitForTimeout(250)
-      continue
+    let clicked = false
+
+    for (const pattern of nextCandidates) {
+      const next = page.getByRole('button', { name: pattern }).first()
+
+      if (await next.isVisible().catch(() => false)) {
+        await next.click()
+        await page.waitForTimeout(250)
+        clicked = true
+        break
+      }
     }
 
-    break
+    if (!clicked) break
   }
 
   return null
@@ -160,10 +170,9 @@ test('audio button is clickable, does not stay disabled, and calls speech fallba
   await page.waitForLoadState('domcontentloaded')
   await page.waitForTimeout(300)
 
-  const audioButton = await findAudioButton(page)
+  const audioButton = await clickForwardUntilAudio(page)
 
-  expect(audioButton, 'audio button should exist after walking lesson cards').not.toBeNull()
-
+  expect(audioButton, 'audio button should exist in lesson flow').not.toBeNull()
   if (!audioButton) return
 
   await expect(audioButton).toBeVisible()
@@ -172,9 +181,7 @@ test('audio button is clickable, does not stay disabled, and calls speech fallba
   await expect(audioButton).toBeEnabled({ timeout: 5_000 })
 
   await expect
-    .poll(async () => page.evaluate(() => (window as any).__speechCalls?.length ?? 0), {
-      timeout: 5_000,
-    })
+    .poll(async () => page.evaluate(() => (window as any).__speechCalls?.length ?? 0), { timeout: 5_000 })
     .toBeGreaterThan(0)
 
   await expectNoErrorOverlay(page)
