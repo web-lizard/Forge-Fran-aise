@@ -1,0 +1,55 @@
+{
+  "id": "office_rage",
+  "title": {
+    "ru": "Офисная злость",
+    "fr": "Colère de bureau"
+  },
+  "items": [
+    {
+      "id": "c_est_quoi_ce_bordel",
+      "fr": "C’est quoi ce bordel ?",
+      "transcription": "[сэ куа сё бордэль]",
+      "ru": "Что это за херня?",
+      "literal_ru": "Что это за бардак?",
+      "register": "vulgar",
+      "rudeness_level": 4,
+      "danger_level": 3,
+      "context": {
+        "ru": "Грубое возмущение. Часто слышно в разговорной речи, но на официальной встрече лучше не надо.",
+        "fr": "Expression vulgaire de surprise ou de colère."
+      },
+      "softer_versions": [
+        {
+          "fr": "Qu’est-ce que c’est ?",
+          "transcription": "[кэскё сэ]",
+          "ru": "Что это такое?"
+        }
+      ],
+      "audio_text": "C’est quoi ce bordel ?",
+      "tags": ["vulgar", "office", "anger"]
+    },
+    {
+      "id": "j_en_ai_ras_le_bol",
+      "fr": "J’en ai ras le bol.",
+      "transcription": "[жанэ ра лё боль]",
+      "ru": "Меня это достало по горло.",
+      "literal_ru": "У меня этого полная миска.",
+      "register": "familiar",
+      "rudeness_level": 3,
+      "danger_level": 2,
+      "context": {
+        "ru": "Разговорное выражение сильной усталости или раздражения. Менее грубо, чем прямой мат.",
+        "fr": "Expression familière de lassitude."
+      },
+      "softer_versions": [
+        {
+          "fr": "Je suis fatigué de ça.",
+          "transcription": "[жё сюи фатигэ дэ са]",
+          "ru": "Я устал от этого."
+        }
+      ],
+      "audio_text": "J’en ai ras le bol.",
+      "tags": ["familiar", "office", "anger"]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "start",
+  "slug": "start",
+  "order": 0,
+  "icon": "crown",
+  "title": {
+    "ru": "Вход во французский",
+    "fr": "Entrée dans le français"
+  },
+  "subtitle": {
+    "ru": "Приветствия, вежливость и первые фразы.",
+    "fr": "Salutations, politesse et premières phrases."
+  },
+  "level": "A0",
+  "tone": "basic",
+  "lessons": ["greetings_001"],
+  "is_adult": false
+}

@@ -1,0 +1,55 @@
+{
+  "id": "go_away",
+  "title": {
+    "ru": "Как послать человека",
+    "fr": "Envoyer quelqu’un balader"
+  },
+  "items": [
+    {
+      "id": "va_te_faire_foutre",
+      "fr": "Va te faire foutre.",
+      "transcription": "[ва тэ фэр футр]",
+      "ru": "Пошёл ты нахуй.",
+      "literal_ru": "Иди сделай так, чтобы тебя трахнули.",
+      "register": "vulgar",
+      "rudeness_level": 5,
+      "danger_level": 5,
+      "context": {
+        "ru": "Очень грубо. Использовать только если действительно хочешь жёстко послать человека.",
+        "fr": "Très vulgaire et très agressif."
+      },
+      "softer_versions": [
+        {
+          "fr": "Laisse-moi tranquille.",
+          "transcription": "[лэс-муа транкиль]",
+          "ru": "Оставь меня в покое."
+        }
+      ],
+      "audio_text": "Va te faire foutre.",
+      "tags": ["vulgar", "go_away", "direct"]
+    },
+    {
+      "id": "allez_tous_vous_faire_foutre",
+      "fr": "Allez tous vous faire foutre.",
+      "transcription": "[але тус ву фэр футр]",
+      "ru": "Идите вы все нахуй.",
+      "literal_ru": "Идите все сделайте так, чтобы вас трахнули.",
+      "register": "vulgar",
+      "rudeness_level": 5,
+      "danger_level": 5,
+      "context": {
+        "ru": "Грубое коллективное посылание. В живом конфликте может резко обострить ситуацию.",
+        "fr": "Insulte collective très agressive."
+      },
+      "softer_versions": [
+        {
+          "fr": "Laissez-moi tranquille.",
+          "transcription": "[лэсэ-муа транкиль]",
+          "ru": "Оставьте меня в покое."
+        }
+      ],
+      "audio_text": "Allez tous vous faire foutre.",
+      "tags": ["vulgar", "go_away", "group"]
+    }
+  ]
+}

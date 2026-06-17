@@ -1,0 +1,18 @@
+{
+  "id": "nouns",
+  "slug": "nouns",
+  "order": 4,
+  "icon": "book",
+  "title": {
+    "ru": "Род и число",
+    "fr": "Genre et nombre"
+  },
+  "subtitle": {
+    "ru": "Почему maison женского рода, а livre мужского, и как с этим жить.",
+    "fr": "Masculin, féminin, singulier et pluriel."
+  },
+  "level": "A0",
+  "tone": "grammar",
+  "lessons": ["gender_001", "plural_001"],
+  "is_adult": false
+}

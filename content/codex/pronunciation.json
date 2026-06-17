@@ -1,0 +1,28 @@
+{
+  "id": "pronunciation",
+  "title": {
+    "ru": "Произношение",
+    "fr": "Prononciation"
+  },
+  "summary": {
+    "ru": "Французский нужно слушать с первого дня. Написание и звучание часто расходятся.",
+    "fr": "Le français doit être écouté dès le début."
+  },
+  "items": [
+    {
+      "fr": "beaucoup",
+      "transcription": "[боку]",
+      "ru": "много / очень, последняя p не читается"
+    },
+    {
+      "fr": "oui",
+      "transcription": "[уи]",
+      "ru": "да"
+    },
+    {
+      "fr": "non",
+      "transcription": "[нон]",
+      "ru": "нет"
+    }
+  ]
+}

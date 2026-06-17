@@ -1,0 +1,33 @@
+{
+  "id": "verbs",
+  "title": {
+    "ru": "Базовые глаголы",
+    "fr": "Verbes de base"
+  },
+  "summary": {
+    "ru": "Être, avoir, aller и faire - главные рабочие глаголы для старта.",
+    "fr": "Être, avoir, aller et faire sont essentiels."
+  },
+  "items": [
+    {
+      "fr": "je suis",
+      "transcription": "[жё сюи]",
+      "ru": "я есть / я являюсь"
+    },
+    {
+      "fr": "j’ai",
+      "transcription": "[жэ]",
+      "ru": "у меня есть / я имею"
+    },
+    {
+      "fr": "je vais",
+      "transcription": "[жё вэ]",
+      "ru": "я иду / я еду"
+    },
+    {
+      "fr": "je fais",
+      "transcription": "[жё фэ]",
+      "ru": "я делаю"
+    }
+  ]
+}

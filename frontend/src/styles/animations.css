@@ -1,0 +1,45 @@
+.flying-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.18;
+}
+
+.flying-layer span {
+  position: absolute;
+  color: var(--antique-gold);
+  font-size: clamp(2rem, 10vw, 6rem);
+  animation: floatAccent 18s linear infinite;
+}
+
+.flying-layer span:nth-child(1) {
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.flying-layer span:nth-child(2) {
+  left: 36%;
+  animation-delay: 4s;
+}
+
+.flying-layer span:nth-child(3) {
+  left: 64%;
+  animation-delay: 8s;
+}
+
+.flying-layer span:nth-child(4) {
+  left: 82%;
+  animation-delay: 12s;
+}
+
+@keyframes floatAccent {
+  from {
+    transform: translateY(110vh) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-20vh) rotate(360deg);
+  }
+}

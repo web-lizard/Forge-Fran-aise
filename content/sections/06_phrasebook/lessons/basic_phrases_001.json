@@ -1,0 +1,60 @@
+{
+  "id": "basic_phrases_001",
+  "section_id": "phrasebook",
+  "order": 1,
+  "level": "A0",
+  "title": {
+    "ru": "Первые полезные фразы",
+    "fr": "Premières phrases utiles"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Фразы нужны сразу",
+        "fr": "Les phrases sont nécessaires tout de suite"
+      },
+      "body": {
+        "ru": "Отдельные слова важны, но мозг лучше цепляется за короткие живые фразы.",
+        "fr": "Le cerveau retient mieux les phrases courtes."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Je ne comprends pas.",
+      "transcription": "[жё нё компрэн па]",
+      "ru": "Я не понимаю.",
+      "audio_text": "Je ne comprends pas."
+    },
+    {
+      "type": "example",
+      "fr": "Parlez lentement, s’il vous plaît.",
+      "transcription": "[парле лантман, силь ву пле]",
+      "ru": "Говорите медленно, пожалуйста.",
+      "audio_text": "Parlez lentement, s’il vous plaît."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_je_ne_comprends_pas_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_je_ne_comprends_pas_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Что значит Je ne comprends pas?",
+        "fr": "Que signifie Je ne comprends pas ?"
+      },
+      "options": ["Я не понимаю", "Я готов", "Я хочу воды", "Здравствуйте"],
+      "answer": "Я не понимаю",
+      "explanation": {
+        "ru": "Je ne comprends pas - я не понимаю.",
+        "fr": "Je ne comprends pas signifie я не понимаю."
+      },
+      "audio_text": "Je ne comprends pas.",
+      "tags": ["phrase", "basic"],
+      "difficulty": 1
+    }
+  ]
+}

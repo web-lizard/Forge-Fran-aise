@@ -1,0 +1,79 @@
+{
+  "id": "un_une_des_001",
+  "section_id": "articles",
+  "order": 2,
+  "level": "A0",
+  "title": {
+    "ru": "Un, une, des: какой-то, какая-то, какие-то",
+    "fr": "Un, une, des : indéfini"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Определённое и неопределённое",
+        "fr": "Défini et indéfini"
+      },
+      "body": {
+        "ru": "le/la говорят о чём-то определённом или общем. un/une/des часто работают как какой-то, какая-то, какие-то.",
+        "fr": "un, une et des introduisent souvent quelque chose de non précisé."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "un",
+      "transcription": "[эн]",
+      "ru": "неопределённый артикль мужского рода",
+      "audio_text": "un",
+      "tooltip": {
+        "ru": "un livre - какая-то книга или одна книга. livre мужского рода.",
+        "fr": "Article indéfini masculin singulier."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "une",
+      "transcription": "[юн]",
+      "ru": "неопределённый артикль женского рода",
+      "audio_text": "une",
+      "tooltip": {
+        "ru": "une maison - какой-то дом. maison женского рода во французском.",
+        "fr": "Article indéfini féminin singulier."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "des",
+      "transcription": "[дэ]",
+      "ru": "неопределённый артикль множественного числа",
+      "audio_text": "des",
+      "tooltip": {
+        "ru": "des livres - какие-то книги.",
+        "fr": "Article indéfini pluriel."
+      }
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_une_maison_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_une_maison_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Выбери правильную форму: ___ maison",
+        "fr": "Choisis la bonne forme : ___ maison"
+      },
+      "options": ["un", "une", "des", "le"],
+      "answer": "une",
+      "explanation": {
+        "ru": "maison женского рода, поэтому une maison.",
+        "fr": "maison est féminin, donc une maison."
+      },
+      "audio_text": "une maison",
+      "tags": ["article", "indefinite", "gender"],
+      "difficulty": 1
+    }
+  ]
+}

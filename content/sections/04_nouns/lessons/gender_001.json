@@ -1,0 +1,60 @@
+{
+  "id": "gender_001",
+  "section_id": "nouns",
+  "order": 1,
+  "level": "A0",
+  "title": {
+    "ru": "Род существительных",
+    "fr": "Le genre des noms"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Род не обязан совпадать с русским",
+        "fr": "Le genre ne suit pas le russe"
+      },
+      "body": {
+        "ru": "Во французском у существительных есть грамматический род. Он не обязан совпадать с русским. Дом по-русски мужской, но maison во французском женского рода.",
+        "fr": "En français, les noms ont un genre grammatical : masculin ou féminin."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "la maison",
+      "transcription": "[ля мэзон]",
+      "ru": "дом",
+      "audio_text": "la maison"
+    },
+    {
+      "type": "example",
+      "fr": "le livre",
+      "transcription": "[лё ливр]",
+      "ru": "книга",
+      "audio_text": "le livre"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_gender_livre_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_gender_livre_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Как правильно: ___ livre",
+        "fr": "Quelle forme est correcte : ___ livre"
+      },
+      "options": ["le", "la", "une", "de la"],
+      "answer": "le",
+      "explanation": {
+        "ru": "livre мужского рода, поэтому le livre.",
+        "fr": "livre est masculin, donc le livre."
+      },
+      "audio_text": "le livre",
+      "tags": ["noun", "gender", "article"],
+      "difficulty": 1
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "de",
+  "title": {
+    "ru": "De, du, de la, des",
+    "fr": "De, du, de la, des"
+  },
+  "summary": {
+    "ru": "de может обозначать из, от, принадлежность, количество. du = de + le.",
+    "fr": "de peut exprimer l’origine, la possession ou la quantité."
+  },
+  "items": [
+    {
+      "fr": "de",
+      "transcription": "[дэ]",
+      "ru": "из, от, принадлежность, количество"
+    },
+    {
+      "fr": "du",
+      "transcription": "[дю]",
+      "ru": "de + le"
+    },
+    {
+      "fr": "de la",
+      "transcription": "[дэ ля]",
+      "ru": "часть или неопределённое количество для женского рода"
+    }
+  ]
+}

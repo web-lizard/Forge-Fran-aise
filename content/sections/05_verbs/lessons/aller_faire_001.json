@@ -1,0 +1,75 @@
+{
+  "id": "aller_faire_001",
+  "section_id": "verbs",
+  "order": 2,
+  "level": "A0",
+  "title": {
+    "ru": "Aller и faire: идти и делать",
+    "fr": "Aller et faire"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Движение и действие",
+        "fr": "Mouvement et action"
+      },
+      "body": {
+        "ru": "aller - идти или ехать. faire - делать. Это базовые рабочие глаголы на каждый день.",
+        "fr": "aller exprime le mouvement. faire exprime l’action."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "je vais",
+      "transcription": "[жё вэ]",
+      "ru": "я иду / я еду",
+      "audio_text": "je vais",
+      "tooltip": {
+        "ru": "Форма глагола aller для je.",
+        "fr": "Forme de aller avec je."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "je fais",
+      "transcription": "[жё фэ]",
+      "ru": "я делаю",
+      "audio_text": "je fais",
+      "tooltip": {
+        "ru": "Форма глагола faire для je.",
+        "fr": "Forme de faire avec je."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Je fais le test.",
+      "transcription": "[жё фэ лё тэст]",
+      "ru": "Я делаю тест.",
+      "audio_text": "Je fais le test."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_je_fais_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_je_fais_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Как сказать я делаю?",
+        "fr": "Comment dire je fais ?"
+      },
+      "options": ["je vais", "je fais", "je suis", "j’ai"],
+      "answer": "je fais",
+      "explanation": {
+        "ru": "je fais значит я делаю.",
+        "fr": "je fais signifie я делаю."
+      },
+      "audio_text": "je fais",
+      "tags": ["verb", "faire"],
+      "difficulty": 1
+    }
+  ]
+}

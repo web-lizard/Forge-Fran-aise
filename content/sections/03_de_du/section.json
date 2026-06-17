@@ -1,0 +1,18 @@
+{
+  "id": "de_du",
+  "slug": "de-du",
+  "order": 3,
+  "icon": "key",
+  "title": {
+    "ru": "De, du, de la",
+    "fr": "De, du, de la"
+  },
+  "subtitle": {
+    "ru": "Главный французский узел, который надо приручить.",
+    "fr": "Le grand nœud français à apprivoiser."
+  },
+  "level": "A0",
+  "tone": "grammar",
+  "lessons": ["de_basic_001"],
+  "is_adult": false
+}

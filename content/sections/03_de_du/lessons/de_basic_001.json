@@ -1,0 +1,60 @@
+{
+  "id": "de_basic_001",
+  "section_id": "de_du",
+  "order": 1,
+  "level": "A0",
+  "title": {
+    "ru": "De: из, от, принадлежность и количество",
+    "fr": "De : origine, possession et quantité"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Почему de важно",
+        "fr": "Pourquoi de est important"
+      },
+      "body": {
+        "ru": "Во французском de часто делает работу, которую в русском делают падежи. Поэтому это не мусорное слово, а ключ.",
+        "fr": "En français, de exprime souvent l’origine, la possession ou la quantité."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "un verre de vin",
+      "transcription": "[эн вэр дэ вэн]",
+      "ru": "бокал вина",
+      "audio_text": "un verre de vin"
+    },
+    {
+      "type": "example",
+      "fr": "du pain",
+      "transcription": "[дю пэн]",
+      "ru": "хлеба / немного хлеба",
+      "audio_text": "du pain"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_du_pain_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_du_pain_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Выбери форму: Je veux ___ pain.",
+        "fr": "Choisis la forme : Je veux ___ pain."
+      },
+      "options": ["de", "du", "de la", "les"],
+      "answer": "du",
+      "explanation": {
+        "ru": "pain мужского рода. Когда говорим про неопределённое количество хлеба, используется du.",
+        "fr": "pain est masculin. Pour une quantité non précisée, on utilise du."
+      },
+      "audio_text": "Je veux du pain.",
+      "tags": ["de", "du", "partitif"],
+      "difficulty": 1
+    }
+  ]
+}

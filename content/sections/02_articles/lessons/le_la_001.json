@@ -1,0 +1,82 @@
+{
+  "id": "le_la_001",
+  "section_id": "articles",
+  "order": 1,
+  "level": "A0",
+  "title": {
+    "ru": "Le и la: первый удар по хаосу",
+    "fr": "Le et la : premier coup contre le chaos"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Что делает артикль",
+        "fr": "Le rôle de l’article"
+      },
+      "body": {
+        "ru": "Во французском существительное почти всегда ходит с маленьким служебным словом перед ним. Это слово показывает род, число и определённость.",
+        "fr": "En français, le nom est souvent accompagné d’un petit mot qui indique le genre, le nombre et la précision."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "le",
+      "transcription": "[лё]",
+      "ru": "определённый артикль мужского рода",
+      "audio_text": "le",
+      "tooltip": {
+        "ru": "Ставится перед существительным мужского рода: le livre.",
+        "fr": "Article défini masculin singulier."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "la",
+      "transcription": "[ля]",
+      "ru": "определённый артикль женского рода",
+      "audio_text": "la",
+      "tooltip": {
+        "ru": "Ставится перед существительным женского рода: la maison.",
+        "fr": "Article défini féminin singulier."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "le livre",
+      "transcription": "[лё ливр]",
+      "ru": "книга",
+      "audio_text": "le livre"
+    },
+    {
+      "type": "example",
+      "fr": "la maison",
+      "transcription": "[ля мэзон]",
+      "ru": "дом",
+      "audio_text": "la maison"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_la_maison_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_la_maison_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Выбери правильный артикль: ___ maison",
+        "fr": "Choisis le bon article : ___ maison"
+      },
+      "options": ["le", "la", "les"],
+      "answer": "la",
+      "explanation": {
+        "ru": "maison женского рода, поэтому la maison.",
+        "fr": "maison est féminin, donc la maison."
+      },
+      "audio_text": "la maison",
+      "tags": ["article", "gender", "la"],
+      "difficulty": 1
+    }
+  ]
+}

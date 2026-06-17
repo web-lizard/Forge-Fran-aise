@@ -1,0 +1,60 @@
+{
+  "id": "plural_001",
+  "section_id": "nouns",
+  "order": 2,
+  "level": "A0",
+  "title": {
+    "ru": "Множественное число",
+    "fr": "Le pluriel"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Les - когда предметов несколько",
+        "fr": "Les - quand il y en a plusieurs"
+      },
+      "body": {
+        "ru": "Для множественного числа определённый артикль обычно les. И он не различает мужской и женский род.",
+        "fr": "Au pluriel, l’article défini est les."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "les livres",
+      "transcription": "[ле ливр]",
+      "ru": "книги",
+      "audio_text": "les livres"
+    },
+    {
+      "type": "example",
+      "fr": "les maisons",
+      "transcription": "[ле мэзон]",
+      "ru": "дома",
+      "audio_text": "les maisons"
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_plural_les_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_plural_les_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Выбери артикль для множественного числа: ___ maisons",
+        "fr": "Choisis l’article pluriel : ___ maisons"
+      },
+      "options": ["le", "la", "les", "un"],
+      "answer": "les",
+      "explanation": {
+        "ru": "Во множественном числе используется les: les maisons.",
+        "fr": "Au pluriel, on utilise les : les maisons."
+      },
+      "audio_text": "les maisons",
+      "tags": ["plural", "article"],
+      "difficulty": 1
+    }
+  ]
+}

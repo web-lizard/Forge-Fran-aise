@@ -1,0 +1,18 @@
+{
+  "id": "vulgar_french",
+  "slug": "vulgar-french",
+  "order": 7,
+  "icon": "flame",
+  "title": {
+    "ru": "Французский мат",
+    "fr": "Les gros mots français"
+  },
+  "subtitle": {
+    "ru": "Грубые фразы, злость и реальный разговорный регистр.",
+    "fr": "Insultes, colère et registre très familier."
+  },
+  "level": "A1",
+  "tone": "vulgar",
+  "lessons": ["vulgar_intro_001"],
+  "is_adult": true
+}

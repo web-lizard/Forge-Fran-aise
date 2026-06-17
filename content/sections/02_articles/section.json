@@ -1,0 +1,18 @@
+{
+  "id": "articles",
+  "slug": "articles",
+  "order": 2,
+  "icon": "shield",
+  "title": {
+    "ru": "Артикли",
+    "fr": "Les articles"
+  },
+  "subtitle": {
+    "ru": "Le, la, les, un, une, des без мозгового тумана.",
+    "fr": "Le, la, les, un, une, des sans brouillard."
+  },
+  "level": "A0",
+  "tone": "grammar",
+  "lessons": ["le_la_001", "un_une_des_001"],
+  "is_adult": false
+}

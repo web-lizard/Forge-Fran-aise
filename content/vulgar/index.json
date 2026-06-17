@@ -1,0 +1,30 @@
+{
+  "title": {
+    "ru": "Французский мат",
+    "fr": "Les gros mots français"
+  },
+  "is_adult": true,
+  "categories": [
+    {
+      "id": "anger_basic",
+      "title": {
+        "ru": "Базовая злость",
+        "fr": "Colère de base"
+      }
+    },
+    {
+      "id": "go_away",
+      "title": {
+        "ru": "Как послать человека",
+        "fr": "Envoyer quelqu’un balader"
+      }
+    },
+    {
+      "id": "office_rage",
+      "title": {
+        "ru": "Офисная злость",
+        "fr": "Colère de bureau"
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "anger_basic",
+  "title": {
+    "ru": "Базовая злость",
+    "fr": "Colère de base"
+  },
+  "items": [
+    {
+      "id": "putain_j_en_ai_marre",
+      "fr": "Putain, j’en ai marre.",
+      "transcription": "[пютэн, жанэ мар]",
+      "ru": "Блядь, меня это достало.",
+      "literal_ru": "Блядь, мне этого достаточно.",
+      "register": "vulgar",
+      "rudeness_level": 4,
+      "danger_level": 3,
+      "context": {
+        "ru": "Грубо, эмоционально, но очень разговорно. Не для официальной ситуации.",
+        "fr": "Vulgaire, très familier, à éviter dans un contexte formel."
+      },
+      "softer_versions": [
+        {
+          "fr": "J’en ai assez.",
+          "transcription": "[жанэ асэ]",
+          "ru": "Мне этого достаточно / я устал от этого."
+        }
+      ],
+      "audio_text": "Putain, j’en ai marre.",
+      "tags": ["vulgar", "anger", "basic"]
+    },
+    {
+      "id": "vous_me_faites_tous_chier",
+      "fr": "Vous me faites tous chier.",
+      "transcription": "[ву мё фэт тус шье]",
+      "ru": "Вы все меня заебали.",
+      "literal_ru": "Вы все заставляете меня срать.",
+      "register": "vulgar",
+      "rudeness_level": 5,
+      "danger_level": 4,
+      "context": {
+        "ru": "Очень грубо. Это уже прямое агрессивное высказывание.",
+        "fr": "Très vulgaire et agressif."
+      },
+      "softer_versions": [
+        {
+          "fr": "Vous me fatiguez.",
+          "transcription": "[ву мё фатигэ]",
+          "ru": "Вы меня утомляете."
+        }
+      ],
+      "audio_text": "Vous me faites tous chier.",
+      "tags": ["vulgar", "anger", "group"]
+    }
+  ]
+}

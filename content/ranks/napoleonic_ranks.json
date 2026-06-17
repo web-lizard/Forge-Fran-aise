@@ -1,0 +1,84 @@
+{
+  "ranks": [
+    {
+      "id": "recrue",
+      "order": 1,
+      "fr": "Recrue",
+      "transcription": "[рёкрю]",
+      "ru": "новобранец",
+      "min_score": 0
+    },
+    {
+      "id": "soldat",
+      "order": 2,
+      "fr": "Soldat",
+      "transcription": "[сольда]",
+      "ru": "солдат",
+      "min_score": 100
+    },
+    {
+      "id": "caporal",
+      "order": 3,
+      "fr": "Caporal",
+      "transcription": "[капораль]",
+      "ru": "капрал",
+      "min_score": 250
+    },
+    {
+      "id": "sergent",
+      "order": 4,
+      "fr": "Sergent",
+      "transcription": "[сэржан]",
+      "ru": "сержант",
+      "min_score": 500
+    },
+    {
+      "id": "lieutenant",
+      "order": 5,
+      "fr": "Lieutenant",
+      "transcription": "[льётнан]",
+      "ru": "лейтенант",
+      "min_score": 900
+    },
+    {
+      "id": "capitaine",
+      "order": 6,
+      "fr": "Capitaine",
+      "transcription": "[капитэн]",
+      "ru": "капитан",
+      "min_score": 1400
+    },
+    {
+      "id": "chef_de_bataillon",
+      "order": 7,
+      "fr": "Chef de bataillon",
+      "transcription": "[шеф дэ батайон]",
+      "ru": "командир батальона",
+      "min_score": 2200
+    },
+    {
+      "id": "colonel",
+      "order": 8,
+      "fr": "Colonel",
+      "transcription": "[колонэль]",
+      "ru": "полковник",
+      "min_score": 3200
+    },
+    {
+      "id": "general_de_brigade",
+      "order": 9,
+      "fr": "Général de brigade",
+      "transcription": "[женераль дэ бригад]",
+      "ru": "бригадный генерал",
+      "min_score": 4600
+    },
+    {
+      "id": "marechal_de_l_empire",
+      "order": 10,
+      "fr": "Maréchal de l’Empire",
+      "transcription": "[марэшаль дэ ланпир]",
+      "ru": "маршал Империи",
+      "min_score": 7000
+    }
+  ]
+}

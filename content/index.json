@@ -1,0 +1,6 @@
+{
+  "app": "forge-francaise",
+  "version": "0.1.0",
+  "default_locale": "ru",
+  "available_locales": ["ru", "fr"]
+}

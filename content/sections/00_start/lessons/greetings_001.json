@@ -1,0 +1,75 @@
+{
+  "id": "greetings_001",
+  "section_id": "start",
+  "order": 1,
+  "level": "A0",
+  "title": {
+    "ru": "Bonjour, merci и базовая вежливость",
+    "fr": "Bonjour, merci et la politesse de base"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Первый принцип",
+        "fr": "Premier principe"
+      },
+      "body": {
+        "ru": "Сначала учим короткие живые фразы, которые можно сразу слушать и повторять.",
+        "fr": "On commence par des phrases courtes, utiles et faciles à répéter."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "Bonjour",
+      "transcription": "[бонжур]",
+      "ru": "здравствуйте / добрый день",
+      "audio_text": "Bonjour",
+      "tooltip": {
+        "ru": "Универсальное вежливое приветствие.",
+        "fr": "Salutation polie et très courante."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "Merci",
+      "transcription": "[мэрси]",
+      "ru": "спасибо",
+      "audio_text": "Merci",
+      "tooltip": {
+        "ru": "Базовое спасибо. Подходит почти везде.",
+        "fr": "Remerciement simple et courant."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Bonjour, monsieur.",
+      "transcription": "[бонжур, месьё]",
+      "ru": "Здравствуйте, месье.",
+      "audio_text": "Bonjour, monsieur."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_bonjour_translation"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_bonjour_translation",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Что значит Bonjour?",
+        "fr": "Que signifie Bonjour ?"
+      },
+      "options": ["спасибо", "здравствуйте", "пожалуйста", "до свидания"],
+      "answer": "здравствуйте",
+      "explanation": {
+        "ru": "Bonjour значит здравствуйте или добрый день.",
+        "fr": "Bonjour signifie bonjour ou bonne journée selon le contexte."
+      },
+      "audio_text": "Bonjour",
+      "tags": ["greeting", "basic"],
+      "difficulty": 1
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "etre_avoir_001",
+  "section_id": "verbs",
+  "order": 1,
+  "level": "A0",
+  "title": {
+    "ru": "Être и avoir: быть и иметь",
+    "fr": "Être et avoir"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Два главных глагола",
+        "fr": "Deux verbes essentiels"
+      },
+      "body": {
+        "ru": "être - быть. avoir - иметь. На них держится огромная часть французской грамматики.",
+        "fr": "être signifie être. avoir signifie avoir."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "je suis",
+      "transcription": "[жё сюи]",
+      "ru": "я есть / я являюсь",
+      "audio_text": "je suis",
+      "tooltip": {
+        "ru": "Форма глагола être для je.",
+        "fr": "Forme de être avec je."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "j’ai",
+      "transcription": "[жэ]",
+      "ru": "у меня есть / я имею",
+      "audio_text": "j’ai",
+      "tooltip": {
+        "ru": "Форма глагола avoir для je. Je + ai сливаются в j’ai.",
+        "fr": "Forme de avoir avec je."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Je suis prêt.",
+      "transcription": "[жё сюи прэ]",
+      "ru": "Я готов.",
+      "audio_text": "Je suis prêt."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_je_suis_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_je_suis_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Как сказать я есть / я являюсь?",
+        "fr": "Comment dire je suis ?"
+      },
+      "options": ["je suis", "j’ai", "je vais", "merci"],
+      "answer": "je suis",
+      "explanation": {
+        "ru": "je suis - это я есть / я являюсь.",
+        "fr": "je suis est la forme de être avec je."
+      },
+      "audio_text": "je suis",
+      "tags": ["verb", "etre"],
+      "difficulty": 1
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "imperial_phrases_001",
+  "section_id": "phrasebook",
+  "order": 2,
+  "level": "A0",
+  "title": {
+    "ru": "Имперские фразы",
+    "fr": "Phrases impériales"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Пафос помогает памяти",
+        "fr": "Le panache aide la mémoire"
+      },
+      "body": {
+        "ru": "Чем страннее и ярче фраза, тем легче мозгу её удержать. Поэтому да, тут будет империя.",
+        "fr": "Une phrase vive et étrange se retient plus facilement."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Je suis souverain.",
+      "transcription": "[жё сюи сувэрэн]",
+      "ru": "Я суверенен.",
+      "audio_text": "Je suis souverain."
+    },
+    {
+      "type": "example",
+      "fr": "Nous sommes des lézards.",
+      "transcription": "[ну сом дэ лезар]",
+      "ru": "Мы ящеры.",
+      "audio_text": "Nous sommes des lézards."
+    },
+    {
+      "type": "example",
+      "fr": "Vive l’Empire.",
+      "transcription": "[вив ланпир]",
+      "ru": "Да здравствует Империя.",
+      "audio_text": "Vive l’Empire."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_je_suis_souverain_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_je_suis_souverain_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Что значит Je suis souverain?",
+        "fr": "Que signifie Je suis souverain ?"
+      },
+      "options": ["Я суверенен", "Я устал", "Я иду", "Я не понимаю"],
+      "answer": "Я суверенен",
+      "explanation": {
+        "ru": "Je suis - я есть / я являюсь. souverain - суверенный.",
+        "fr": "Je suis souverain signifie я суверенен."
+      },
+      "audio_text": "Je suis souverain.",
+      "tags": ["phrase", "imperial", "etre"],
+      "difficulty": 1
+    }
+  ]
+}

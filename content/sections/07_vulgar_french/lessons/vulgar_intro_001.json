@@ -1,0 +1,53 @@
+{
+  "id": "vulgar_intro_001",
+  "section_id": "vulgar_french",
+  "order": 1,
+  "level": "A1",
+  "title": {
+    "ru": "Введение в французский мат",
+    "fr": "Introduction aux gros mots français"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Зачем это учить",
+        "fr": "Pourquoi apprendre ça"
+      },
+      "body": {
+        "ru": "Мат и грубые фразы нужны не только чтобы ругаться. Они помогают понимать фильмы, песни, живую речь и уровень агрессии.",
+        "fr": "Les gros mots aident à comprendre les films, les chansons et le vrai registre familier."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Putain, j’en ai marre.",
+      "transcription": "[пютэн, жанэ мар]",
+      "ru": "Блядь, меня это достало.",
+      "audio_text": "Putain, j’en ai marre."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_vulgar_rudeness_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_vulgar_rudeness_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Какой это регистр: Putain, j’en ai marre?",
+        "fr": "Quel est le registre : Putain, j’en ai marre ?"
+      },
+      "options": ["официальный", "нейтральный", "грубый разговорный", "детский"],
+      "answer": "грубый разговорный",
+      "explanation": {
+        "ru": "Putain делает фразу грубой и разговорной. В официальной ситуации так лучше не говорить.",
+        "fr": "Putain rend la phrase vulgaire et très familière."
+      },
+      "audio_text": "Putain, j’en ai marre.",
+      "tags": ["vulgar", "register"],
+      "difficulty": 1
+    }
+  ]
+}

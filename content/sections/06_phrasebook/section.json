@@ -1,0 +1,18 @@
+{
+  "id": "phrasebook",
+  "slug": "phrasebook",
+  "order": 6,
+  "icon": "banner",
+  "title": {
+    "ru": "Фразовый арсенал",
+    "fr": "Arsenal de phrases"
+  },
+  "subtitle": {
+    "ru": "Нормальные фразы плюс имперская ебанистика для запоминания.",
+    "fr": "Phrases utiles avec une touche impériale."
+  },
+  "level": "A0",
+  "tone": "phrasebook",
+  "lessons": ["basic_phrases_001", "imperial_phrases_001"],
+  "is_adult": false
+}

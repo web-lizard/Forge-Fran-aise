@@ -1,0 +1,18 @@
+{
+  "id": "pronunciation",
+  "slug": "pronunciation",
+  "order": 1,
+  "icon": "sound",
+  "title": {
+    "ru": "Произношение",
+    "fr": "Prononciation"
+  },
+  "subtitle": {
+    "ru": "Звуки, носовые гласные, r и французские странности на слух.",
+    "fr": "Les sons, les nasales, le r et les étrangetés françaises."
+  },
+  "level": "A0",
+  "tone": "phonetics",
+  "lessons": ["sounds_001", "silent_letters_001"],
+  "is_adult": false
+}

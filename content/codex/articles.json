@@ -1,0 +1,28 @@
+{
+  "id": "articles",
+  "title": {
+    "ru": "Артикли",
+    "fr": "Les articles"
+  },
+  "summary": {
+    "ru": "Артикль показывает род, число и определённость существительного.",
+    "fr": "L’article indique le genre, le nombre et le degré de précision du nom."
+  },
+  "items": [
+    {
+      "fr": "le",
+      "transcription": "[лё]",
+      "ru": "определённый артикль мужского рода"
+    },
+    {
+      "fr": "la",
+      "transcription": "[ля]",
+      "ru": "определённый артикль женского рода"
+    },
+    {
+      "fr": "les",
+      "transcription": "[ле]",
+      "ru": "определённый артикль множественного числа"
+    }
+  ]
+}

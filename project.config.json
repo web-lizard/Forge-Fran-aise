@@ -1,0 +1,10 @@
+{
+  "name": "Forge Francaise",
+  "public_title_ru": "Имперский мозговыбиватель французского языка",
+  "backend_port": 8797,
+  "frontend_port": 5197,
+  "api_base": "http://127.0.0.1:8797/api",
+  "frontend_url": "http://127.0.0.1:5197",
+  "version": "0.3.0",
+  "patch": "patch 3: course content and lesson navigation"
+}

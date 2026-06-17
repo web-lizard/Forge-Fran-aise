@@ -1,0 +1,18 @@
+{
+  "id": "verbs",
+  "slug": "verbs",
+  "order": 5,
+  "icon": "sword",
+  "title": {
+    "ru": "Базовые глаголы",
+    "fr": "Verbes de base"
+  },
+  "subtitle": {
+    "ru": "Être, avoir, aller, faire - четыре двигателя фразы.",
+    "fr": "Être, avoir, aller, faire - quatre moteurs de phrase."
+  },
+  "level": "A0",
+  "tone": "grammar",
+  "lessons": ["etre_avoir_001", "aller_faire_001"],
+  "is_adult": false
+}

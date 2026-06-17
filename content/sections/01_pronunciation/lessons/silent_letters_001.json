@@ -1,0 +1,64 @@
+{
+  "id": "silent_letters_001",
+  "section_id": "pronunciation",
+  "order": 2,
+  "level": "A0",
+  "title": {
+    "ru": "Немые буквы: почему не всё читается",
+    "fr": "Lettres muettes : pourquoi tout ne se prononce pas"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Французский пишет больше, чем говорит",
+        "fr": "Le français écrit plus qu’il ne parle"
+      },
+      "body": {
+        "ru": "Во французском последние буквы часто не произносятся. Это не баг, это отдельная система. Сначала просто привыкаем: beaucoup звучит не как буквальная мясорубка.",
+        "fr": "En français, les lettres finales sont souvent muettes."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "beaucoup",
+      "transcription": "[боку]",
+      "ru": "много / очень",
+      "audio_text": "beaucoup",
+      "tooltip": {
+        "ru": "Последняя p не произносится. Слово звучит примерно как боку.",
+        "fr": "La dernière lettre ne se prononce pas."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Merci beaucoup.",
+      "transcription": "[мэрси боку]",
+      "ru": "Большое спасибо.",
+      "audio_text": "Merci beaucoup."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_beaucoup_sound_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_beaucoup_sound_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Как примерно звучит beaucoup?",
+        "fr": "Comment se prononce beaucoup ?"
+      },
+      "options": ["боку", "беаукоуп", "бекоп", "бокоуп"],
+      "answer": "боку",
+      "explanation": {
+        "ru": "beaucoup звучит примерно как боку. Последняя p молчит.",
+        "fr": "beaucoup se prononce à peu près comme боку."
+      },
+      "audio_text": "beaucoup",
+      "tags": ["pronunciation", "silent_letters"],
+      "difficulty": 1
+    }
+  ]
+}

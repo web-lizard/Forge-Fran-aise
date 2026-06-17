@@ -1,0 +1,75 @@
+{
+  "id": "sounds_001",
+  "section_id": "pronunciation",
+  "order": 1,
+  "level": "A0",
+  "title": {
+    "ru": "Первые звуки: bonjour, merci, oui",
+    "fr": "Premiers sons : bonjour, merci, oui"
+  },
+  "cards": [
+    {
+      "type": "theory",
+      "title": {
+        "ru": "Сначала слушаем",
+        "fr": "On écoute d’abord"
+      },
+      "body": {
+        "ru": "Французский нельзя нормально взять только глазами. Слова надо сразу слушать, иначе bonjour останется буквами, а не звуком.",
+        "fr": "Le français doit être écouté dès le début. Les mots doivent devenir des sons."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "oui",
+      "transcription": "[уи]",
+      "ru": "да",
+      "audio_text": "oui",
+      "tooltip": {
+        "ru": "Очень короткое базовое слово. Звучит примерно как уи.",
+        "fr": "Mot très court et très courant."
+      }
+    },
+    {
+      "type": "word",
+      "fr": "non",
+      "transcription": "[нон]",
+      "ru": "нет",
+      "audio_text": "non",
+      "tooltip": {
+        "ru": "Базовое нет. Носовой звук здесь пока можно воспринимать примерно как нон.",
+        "fr": "Négation simple et très courante."
+      }
+    },
+    {
+      "type": "example",
+      "fr": "Oui, monsieur.",
+      "transcription": "[уи, месьё]",
+      "ru": "Да, месье.",
+      "audio_text": "Oui, monsieur."
+    },
+    {
+      "type": "exercise",
+      "exercise_id": "ex_oui_translation_001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_oui_translation_001",
+      "type": "choose_option",
+      "prompt": {
+        "ru": "Что значит oui?",
+        "fr": "Que signifie oui ?"
+      },
+      "options": ["да", "нет", "спасибо", "пожалуйста"],
+      "answer": "да",
+      "explanation": {
+        "ru": "oui значит да.",
+        "fr": "oui signifie oui."
+      },
+      "audio_text": "oui",
+      "tags": ["pronunciation", "basic"],
+      "difficulty": 1
+    }
+  ]
+}
