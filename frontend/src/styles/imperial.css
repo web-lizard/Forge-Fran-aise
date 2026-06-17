@@ -52,7 +52,8 @@ h2 {
 .study-card,
 .soft-card,
 .quick-card,
-.lesson-tile {
+.lesson-tile,
+.rank-badge {
   border: 1px solid rgba(232, 226, 216, 0.12);
   background:
     linear-gradient(135deg, rgba(37, 91, 50, 0.28), transparent 38%),
@@ -106,7 +107,8 @@ h2 {
 }
 
 .profile-strip,
-.practice-head {
+.practice-head,
+.rank-badge {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -114,6 +116,23 @@ h2 {
   padding: 12px 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
+}
+
+.rank-badge {
+  border-color: rgba(176, 138, 69, 0.3);
+}
+
+.rank-badge span,
+.rank-badge small {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.rank-badge strong {
+  color: var(--antique-gold);
+  text-transform: uppercase;
 }
 
 .practice-head {
@@ -338,6 +357,11 @@ h2 {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.codex-row small {
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
 .danger-card {
   border-color: rgba(138, 45, 45, 0.45);
 }
@@ -434,13 +458,19 @@ h2 {
   min-height: 48px;
 }
 
-.stat-grid {
+.stat-grid,
+.diagnostic-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
-.stat-grid div {
+.diagnostic-grid {
+  grid-template-columns: 1fr;
+}
+
+.stat-grid div,
+.diagnostic-grid div {
   display: grid;
   gap: 2px;
   padding: 12px;
@@ -449,12 +479,14 @@ h2 {
   text-align: center;
 }
 
-.stat-grid strong {
+.stat-grid strong,
+.diagnostic-grid strong {
   font-size: 1.25rem;
   color: var(--antique-gold);
 }
 
-.stat-grid span {
+.stat-grid span,
+.diagnostic-grid span {
   color: var(--text-muted);
   font-size: 0.74rem;
   text-transform: uppercase;
@@ -468,4 +500,10 @@ h2 {
   background: rgba(176, 138, 69, 0.16);
   font-size: 0.82rem;
   font-weight: 800;
+}
+
+@media (min-width: 760px) {
+  .diagnostic-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

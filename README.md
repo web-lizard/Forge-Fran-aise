@@ -12,9 +12,59 @@ http://127.0.0.1:8797/api/health
 Frontend:
 http://127.0.0.1:5197
 
+Diagnostics:
+http://127.0.0.1:5197/diagnostics
+
 ## Быстрый запуск
 
+Через ярлык на рабочем столе:
+
+Forge Francaise
+
+Или вручную:
+
+```cmd
 scripts\Forge Francaise Launcher.cmd
+```
+
+## Установка зависимостей
+
+```cmd
+scripts\install_all.cmd
+```
+
+## Проверки
+
+Backend validation and smoke:
+
+```cmd
+scripts\check_backend.cmd
+```
+
+Frontend build:
+
+```cmd
+scripts\check_frontend.cmd
+```
+
+Full MVP check:
+
+```cmd
+scripts\check_all.cmd
+```
+
+Live smoke, когда backend уже запущен:
+
+```cmd
+scripts\smoke_live.cmd
+```
+
+## Если порты заняты
+
+```cmd
+scripts\status_ports.cmd
+scripts\kill_ports.cmd
+```
 
 ## Что уже заложено
 
@@ -43,22 +93,42 @@ scripts\Forge Francaise Launcher.cmd
 - weak topic review
 - progress scoring
 - answer event log
+- diagnostics endpoint
+- backend smoke tests
+- frontend build checks
+- MVP report generator
 
-## Patch 5
+## Demo Flow
 
-Patch 5 adds:
+1. Open http://127.0.0.1:5197
+2. Press Continue.
+3. Listen to a phrase.
+4. Open Drill and answer a few questions.
+5. Open Audio and test voice selection.
+6. Open Profile and switch RU / FR.
+7. Open Diagnostics and check counts.
 
-- edge-tts dependency
-- EdgeTTSProvider
-- MP3 audio generation
-- mock fallback if Edge TTS fails
-- audio cache index
-- GET /api/audio/cache
-- DELETE /api/audio/cache
-- AudioDrillPage
-- /audio route
-- stronger VoiceSelector
-- audio cache controls in profile
-- bottom nav audio entry
+## MVP Report
 
-Edge voices require internet. If they fail, app falls back to mock.
+```cmd
+py scripts\mvp_report.py
+```
+
+Report appears here:
+
+reports\MVP_REPORT.md
+
+## Patch 6
+
+Patch 6 adds:
+
+- diagnostics API
+- diagnostics page
+- backend smoke tests
+- live smoke tests
+- frontend build check script
+- install all script
+- check all script
+- port status and kill scripts
+- MVP report generator
+- final README

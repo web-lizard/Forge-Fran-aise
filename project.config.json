@@ -5,6 +5,7 @@
   "frontend_port": 5197,
   "api_base": "http://127.0.0.1:8797/api",
   "frontend_url": "http://127.0.0.1:5197",
-  "version": "0.5.0",
-  "patch": "patch 5: edge tts, audio drill, cache controls"
+  "diagnostics_url": "http://127.0.0.1:5197/diagnostics",
+  "version": "0.6.0",
+  "patch": "patch 6: diagnostics smoke tests and mvp polish"
 }

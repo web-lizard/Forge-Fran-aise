@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import VoiceSelector from '../components/audio/VoiceSelector.vue'
+import RankBadge from '../components/imperial/RankBadge.vue'
 import { apiGet } from '../lib/api'
 import { useAudioStore } from '../stores/audioStore'
 import { useBootstrapStore } from '../stores/bootstrapStore'
@@ -25,6 +26,11 @@ onMounted(async () => {
       <div class="eyebrow">Profil</div>
       <h1>{{ bootstrap.payload?.profile?.display_name ?? 'Local Lizard' }}</h1>
     </div>
+
+    <RankBadge
+      :rank-id="bootstrap.payload?.profile?.rank_id"
+      :score="summary?.score ?? 0"
+    />
 
     <div class="study-card">
       <h2>{{ settings.uiLanguage === 'ru' ? 'Интерфейс' : 'Interface' }}</h2>
@@ -83,5 +89,9 @@ onMounted(async () => {
         <span v-for="tag in summary.weak_topics" :key="tag" class="stat-chip">{{ tag }}</span>
       </div>
     </div>
+
+    <RouterLink class="primary-button" to="/diagnostics">
+      {{ settings.uiLanguage === 'ru' ? 'Открыть диагностику' : 'Ouvrir le diagnostic' }}
+    </RouterLink>
   </section>
 </template>

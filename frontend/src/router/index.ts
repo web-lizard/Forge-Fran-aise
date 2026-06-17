@@ -9,6 +9,8 @@ import AudioDrillPage from '../pages/AudioDrillPage.vue'
 import CodexPage from '../pages/CodexPage.vue'
 import VulgarLibraryPage from '../pages/VulgarLibraryPage.vue'
 import ProfilePage from '../pages/ProfilePage.vue'
+import DiagnosticsPage from '../pages/DiagnosticsPage.vue'
+import NotFoundPage from '../pages/NotFoundPage.vue'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -22,5 +24,7 @@ export const router = createRouter({
     { path: '/codex', name: 'codex', component: CodexPage },
     { path: '/vulgar', name: 'vulgar', component: VulgarLibraryPage },
     { path: '/profile', name: 'profile', component: ProfilePage },
+    { path: '/diagnostics', name: 'diagnostics', component: DiagnosticsPage },
+    { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundPage },
   ],
 })

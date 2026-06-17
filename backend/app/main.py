@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import audio, bootstrap, codex, course, health, lessons, practice, profiles, progress, review, sections, settings, vulgar
+from app.api import audio, bootstrap, codex, course, diagnostics, health, lessons, practice, profiles, progress, review, sections, settings, vulgar
 
 app = FastAPI(
     title="Forge Française API",
     description="Imperial French learning engine",
-    version="0.4.0",
+    version="0.6.0",
 )
 
 app.add_middleware(
@@ -24,6 +24,7 @@ app.add_middleware(
 
 app.include_router(health.router, prefix="/api")
 app.include_router(settings.router, prefix="/api")
+app.include_router(diagnostics.router, prefix="/api")
 app.include_router(bootstrap.router, prefix="/api")
 app.include_router(course.router, prefix="/api")
 app.include_router(sections.router, prefix="/api")

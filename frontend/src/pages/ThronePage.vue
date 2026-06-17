@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import AudioButton from '../components/learning/AudioButton.vue'
+import RankBadge from '../components/imperial/RankBadge.vue'
 import { apiGet } from '../lib/api'
 import { ui } from '../lib/i18n'
 import { useBootstrapStore } from '../stores/bootstrapStore'
@@ -39,6 +40,12 @@ const firstLesson = computed(() => bootstrap.payload?.sections?.[0]?.lessons?.[0
         <span>{{ profile.display_name }}</span>
         <strong>{{ profile.rank_id }}</strong>
       </div>
+
+      <RankBadge
+        v-if="profile"
+        :rank-id="profile.rank_id"
+        :score="summary?.score ?? 0"
+      />
 
       <div class="stat-grid" v-if="summary">
         <div>
@@ -79,9 +86,9 @@ const firstLesson = computed(() => bootstrap.payload?.sections?.[0]?.lessons?.[0
         <span>{{ settings.uiLanguage === 'ru' ? 'Грубый французский под замком' : 'Français vulgaire sous contrôle' }}</span>
       </RouterLink>
 
-      <RouterLink class="quick-card" to="/codex">
-        <strong>{{ ui('codex', settings.uiLanguage) }}</strong>
-        <span>{{ settings.uiLanguage === 'ru' ? 'Артикли, de и прочая магия' : 'Articles, de et autres mystères' }}</span>
+      <RouterLink class="quick-card" to="/diagnostics">
+        <strong>{{ settings.uiLanguage === 'ru' ? 'Диагностика' : 'Diagnostic' }}</strong>
+        <span>{{ settings.uiLanguage === 'ru' ? 'Проверить, жив ли мозговыбиватель' : 'Vérifier le moteur' }}</span>
       </RouterLink>
     </div>
   </section>
